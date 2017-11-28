@@ -94,7 +94,7 @@ def computeErrorRate(test_set, words_likely_tags):
             t = test_sent[j][TAG]
 
             # known words
-            if w in words_likely_tags and t != UNKNOWN_TAG:
+            if w in words_likely_tags:
                 if w in known_words:
                     known_words[w][COUNTER_SHOWS] += 1
                     if t == words_likely_tags[w]: # same tag
@@ -109,20 +109,6 @@ def computeErrorRate(test_set, words_likely_tags):
 
                 total_predictions += 1
             # unknown words
-            elif w in words_likely_tags and t == UNKNOWN_TAG:
-                if w in unknown_words:
-                    unknown_words[w][COUNTER_SHOWS] += 1
-                    if t == words_likely_tags[w]: # same tag
-                        unknown_words[w][COUNTER_EQUAL] += 1
-                        correct_unknown_predictions += 1
-                else:
-                    if t == words_likely_tags[w]:  # same tag
-                        unknown_words[w] = {COUNTER_SHOWS: 1, COUNTER_EQUAL: 1}
-                        correct_unknown_predictions += 1
-                    else:
-                        unknown_words[w] = {COUNTER_SHOWS: 1, COUNTER_EQUAL: 0}
-
-                total_unknown_predictions += 1
             else: # w not in words_likely_tags, treat w as unknown_word
                 if w in unknown_words:
                     unknown_words[w][COUNTER_SHOWS] += 1
