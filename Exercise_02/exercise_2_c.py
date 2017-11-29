@@ -187,6 +187,16 @@ print(mostlikelytagsequence)
 # print(dqml['*'])
 # print(dqml['*']['AT'])
 # print(qml('AT','*',dqml))
+
+#
+# sent = 'the ss text from local files and from the web, in order to get hold '
+# sent_words = word_tokenize(sent)
+# eqml = train_eml(train_set)
+# print('---->')
+# print(eqml['AT'])
+# print(eqml['AT'][sent_words[1]])
+# print(sent_words[1])
+#
 #
 # sent = 'the ss text from local files and from the web, in order to get hold '
 # sent_words = word_tokenize(sent)
