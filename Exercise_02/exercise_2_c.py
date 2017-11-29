@@ -90,7 +90,7 @@ def viterbi(sent, dqml, eqml):
     :param deml: dictionary for e(x|s) based in training set
     :return: the most likely tag sequence y1...yn+1 for input sent
     """
-
+    #print('start viterbi')
     # compute S (set of tags) from dictionaries
     S = [tag for tag in dqml]
     #print(S)
@@ -119,21 +119,17 @@ def viterbi(sent, dqml, eqml):
                 max_S = None
                 max_w = -1
                 for w in S:
-                    # print('k, v, w, pi = ', k, v, w, pi)
-                    # print(' qml(v,w,dqml) = ',qml(v,w,dqml))
-                    # print(' eml(sent_words[k],v,eqml) = ', eml(sent_words[k-1],v,eqml))
                     currmax = pi[k-1][w] * qml(v,w,dqml) * eml(sent_words[k-1],v,eqml)
-                    if currmax > max_w:
+                    if currmax > 0 and currmax > max_w:
                         max_w = currmax
                         max_S = w
-
+                # if word is unknown use tag 'NN'
+                if max_S is None:
+                    max_w = 0.0
+                    max_S = 'NN'
+                #print('k = ', k, ', max_w = ', max_w, ', max_S = ', max_S, ', v = ', v)
                 pi[k][v] = max_w
                 bp[k][v] = max_S
-                # print('pi[k] = {v: max_w}')
-                # print(k, v, max_w)
-                # print('bp[k] = {v: max_S}')
-                # print(k, v, max_S)
-
 
     # calculate y_n
     max_y = -1
@@ -144,19 +140,9 @@ def viterbi(sent, dqml, eqml):
             max_y = nextmax
             yn = v
 
-    # print(qml('.','NN-TL',dqml))
-    # print(eml('.','.',eqml))
-    # print(yn, max_y)
-    # print('pi[n][v] = ', pi[n]['AT'])
-    # print('pi[n][v] = ', pi[n]['NN-TL'])
-    # print('pi[n][v] = ', pi[n]['.'])
-    # print('qml(STOP,v,dqml) = ', qml('AT','*',dqml))
-    # print('qml(STOP,v,dqml) = ', qml('NN-TL','AT',dqml))
-    # print('qml(STOP,v,dqml) = ', qml('STOP','.',dqml))
-    #
     # print('yn = ', yn)
-    print('pi: ', pi)
-    print('bp: ', bp)
+    #print('pi: ', pi)
+    #print('bp: ', bp)
 
     # calculate y_n-1....y1
     yk1 = yn;
@@ -174,59 +160,24 @@ def viterbi(sent, dqml, eqml):
 dqml = train_qml(train_set)
 eqml = train_eml(train_set)
 
-#mostlikelytagsequence = viterbi('The Fulton County.', dqml, eqml)
 sent = brown.sents(categories='news')[0]
-sent = 'The Fulton County.'
-# mostlikelytagsequence = viterbi(sent, dqml, eqml)
-# print('1. most likely tag sequence: ')
-# print(sent)
-# print(mostlikelytagsequence)
-sent = [word for word, tag in test_set[0]]
+sent = 'The Fulton County was open for long hours because of the Switzerland alphorn.'
+mostlikelytagsequence = viterbi(sent, dqml, eqml)
+print('1. most likely tag sequence: ')
+print(sent)
+print(mostlikelytagsequence)
+
+sent = 'The Huderi Hebedi.'
 mostlikelytagsequence = viterbi(sent, dqml, eqml)
 print('2. most likely tag sequence: ')
 print(sent)
 print(mostlikelytagsequence)
 
-# dqml = train_qml(train_set)
-# print(dqml['AT'])
-# print(dqml['*'])
-# print(dqml['*']['AT'])
-# print(qml('AT','*',dqml))
+for test_sent in test_set:
+    sent = [word for word, tag in test_sent]
+    mostlikelytagsequence = viterbi(sent, dqml, eqml)
+    print('most likely tag sequence for test sentence: ')
+    print(sent)
+    print(mostlikelytagsequence)
 
-#
-# sent = 'the ss text from local files and from the web, in order to get hold '
-# sent_words = word_tokenize(sent)
-# eqml = train_eml(train_set)
-# print('---->')
-# print(eqml['AT'])
-# print(eqml['AT'][sent_words[1]])
-# print(sent_words[1])
-#
-#
-# sent = 'the ss text from local files and from the web, in order to get hold '
-# sent_words = word_tokenize(sent)
-# eqml = train_eml(train_set)
-# print('---->')
-# print(eqml['AT'])
-# print(eqml['AT'][sent_words[1]])
-# print(sent_words[1])
-#
-# print(eqml['AT'][sent_words[0]]);
-# print(eml(sent_words[0],'AT',eqml))
-#
-# for k in range(10-1,0,-1):
-#     print(k)
-
-# S = [tag for tag in dqml]
-# S.remove('*')
-# print(S)
-# S0 = ['*']
-# print(S0)
-# for tag in dqml:
-#     print('tag: ', tag)
-#     print('2: ', dqml[tag])
-#
-#
-# for k in range(1,12):
-#     print(k)
 
