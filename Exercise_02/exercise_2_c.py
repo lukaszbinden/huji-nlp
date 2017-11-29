@@ -8,10 +8,8 @@ news_sents = brown.tagged_sents(categories='news')
 
 # divide to sets
 set_size = round(len(news_sents) * 0.9)
-train_set = news_sents[:5] # set_size]
+train_set = news_sents[:set_size] # set_size]
 test_set = news_sents[set_size:]
-
-print(brown.sents(categories='news')[0])
 
 ################################################
 # (c) i.
@@ -95,7 +93,7 @@ def viterbi(sent, dqml, eqml):
 
     # compute S (set of tags) from dictionaries
     S = [tag for tag in dqml]
-    print(S)
+    #print(S)
     S.remove('*')
 
     if type(sent) is list:
@@ -110,7 +108,7 @@ def viterbi(sent, dqml, eqml):
     bp = {}
 
     for k in range(1,n+1):
-        print('k ========================= ', k)
+        #print('k ========================= ', k)
         bp[k] = {}
         for v in S:
             if k-1 is 0: # w e S_0 -> w = '*'
@@ -146,26 +144,25 @@ def viterbi(sent, dqml, eqml):
             max_y = nextmax
             yn = v
 
-    print(qml('.','NN-TL',dqml))
-    print(eml('.','.',eqml))
-    print(yn, max_y)
-    print('pi[n][v] = ', pi[n]['AT'])
-    print('pi[n][v] = ', pi[n]['NN-TL'])
-    print('pi[n][v] = ', pi[n]['.'])
-    print('qml(STOP,v,dqml) = ', qml('AT','*',dqml))
-    print('qml(STOP,v,dqml) = ', qml('NN-TL','AT',dqml))
-    print('qml(STOP,v,dqml) = ', qml('STOP','.',dqml))
-
-    print('yn = ', yn)
-    print(pi)
-    print(bp)
+    # print(qml('.','NN-TL',dqml))
+    # print(eml('.','.',eqml))
+    # print(yn, max_y)
+    # print('pi[n][v] = ', pi[n]['AT'])
+    # print('pi[n][v] = ', pi[n]['NN-TL'])
+    # print('pi[n][v] = ', pi[n]['.'])
+    # print('qml(STOP,v,dqml) = ', qml('AT','*',dqml))
+    # print('qml(STOP,v,dqml) = ', qml('NN-TL','AT',dqml))
+    # print('qml(STOP,v,dqml) = ', qml('STOP','.',dqml))
+    #
+    # print('yn = ', yn)
+    print('pi: ', pi)
+    print('bp: ', bp)
 
     # calculate y_n-1....y1
     yk1 = yn;
     tagSequence = list()
     tagSequence.append(yn)
     for k in range(n-1,0,-1):
-        print('k: ', k)
         yk = bp[k+1][yk1]
         tagSequence.append(yk)
         yk1 = yk
@@ -179,7 +176,15 @@ eqml = train_eml(train_set)
 
 #mostlikelytagsequence = viterbi('The Fulton County.', dqml, eqml)
 sent = brown.sents(categories='news')[0]
+sent = 'The Fulton County.'
+# mostlikelytagsequence = viterbi(sent, dqml, eqml)
+# print('1. most likely tag sequence: ')
+# print(sent)
+# print(mostlikelytagsequence)
+sent = [word for word, tag in test_set[0]]
 mostlikelytagsequence = viterbi(sent, dqml, eqml)
+print('2. most likely tag sequence: ')
+print(sent)
 print(mostlikelytagsequence)
 
 # dqml = train_qml(train_set)
