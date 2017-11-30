@@ -3,6 +3,10 @@ from nltk.corpus import brown
 from nltk import word_tokenize
 from collections import Counter, defaultdict
 
+WORD = 0
+TAG = 1
+UNKNOWN_TAG = 'NN'
+
 # load new categry
 news_sents = brown.tagged_sents(categories='news')
 
@@ -126,7 +130,7 @@ def viterbi(sent, dqml, eqml):
                 # if word is unknown use tag 'NN'
                 if max_S is None:
                     max_w = 0.0
-                    max_S = 'NN'
+                    max_S = UNKNOWN_TAG
                 #print('k = ', k, ', max_w = ', max_w, ', max_S = ', max_S, ', v = ', v)
                 pi[k][v] = max_w
                 bp[k][v] = max_S
@@ -156,28 +160,111 @@ def viterbi(sent, dqml, eqml):
     tagSequence.reverse()
     return tagSequence
 
+def computeErrorRate(test_sent, viterbi_tag_sequence):
+    """
+    Computes all the error rates
+    :param test_sent: the test sentence we compare to
+    :param viterbi_tag_sequence: the viterbi tag sentence
+    :return: the error rates
+    """
+    # initiate vars
+    correct_predictions = 0
+    total_predictions = 0
+    correct_unknown_predictions = 0
+    total_unknown_predictions = 0
+
+    for j in range(len(test_sent)): # iterate tups in sent
+        expectedTag = test_sent[j][1]
+        actualTag = viterbi_tag_sequence[j]
+        if actualTag == UNKNOWN_TAG:
+            if expectedTag == UNKNOWN_TAG:
+                correct_unknown_predictions += 1
+            total_unknown_predictions += 1
+        else:
+            if actualTag == expectedTag:
+                correct_predictions += 1
+            total_predictions += 1
+
+    #print('correct_predictions......... = ', correct_predictions)
+    #print('total_predictions........... = ', total_predictions)
+    #print('correct_unknown_predictions. = ', correct_unknown_predictions)
+    #print('total_unknown_predictions... = ', total_unknown_predictions)
+    err_rate_known = 1 - correct_predictions/total_predictions
+    if total_unknown_predictions == 0:
+        err_rate_unknown = 0
+    else:
+        err_rate_unknown = 1 - correct_unknown_predictions/total_unknown_predictions
+    # total_err = err_rate_known + err_rate_unknown
+    tot_pred = total_predictions + total_unknown_predictions
+    corr_pred = correct_predictions + correct_unknown_predictions
+    total_err = 1 - corr_pred/tot_pred
+
+    return err_rate_known, err_rate_unknown, total_err
+
 
 dqml = train_qml(train_set)
 eqml = train_eml(train_set)
 
-sent = brown.sents(categories='news')[0]
-sent = 'The Fulton County was open for long hours because of the Switzerland alphorn.'
-mostlikelytagsequence = viterbi(sent, dqml, eqml)
-print('1. most likely tag sequence: ')
-print(sent)
-print(mostlikelytagsequence)
 
-sent = 'The Huderi Hebedi.'
-mostlikelytagsequence = viterbi(sent, dqml, eqml)
-print('2. most likely tag sequence: ')
-print(sent)
-print(mostlikelytagsequence)
+test_set_total_tests = 0
+test_set_err_rate_known = 0
+test_set_err_rate_unknown = 0
+test_set_total_err = 0
 
+################################################
+# (c) (iii)
+# Run the algorithm from c)ii) on the test set. Compute the error rate and compare it to the
+# results from b)ii).
+################################################
 for test_sent in test_set:
+    test_set_total_tests += 1
     sent = [word for word, tag in test_sent]
-    mostlikelytagsequence = viterbi(sent, dqml, eqml)
-    print('most likely tag sequence for test sentence: ')
-    print(sent)
-    print(mostlikelytagsequence)
+    tagsequence = viterbi(sent, dqml, eqml)
+    err_rate_known, err_rate_unknown, total_err = computeErrorRate(test_sent, tagsequence)
+    print(err_rate_known, err_rate_unknown, total_err)
+    test_set_err_rate_known += err_rate_known
+    test_set_err_rate_unknown += err_rate_unknown
+    test_set_total_err += total_err
+
+test_set_err_rate_known /= test_set_total_tests
+test_set_err_rate_unknown /= test_set_total_tests
+test_set_total_err /= test_set_total_tests
+print('ErrorRates TEST_SET -->')
+print(test_set_err_rate_known, test_set_err_rate_unknown, test_set_total_err)
+print('ErrorRates TEST_SET  <--')
+
+# OUTPUT OF EXECUTION:
+# most likely tag baseline:
+# ErrorRates TEST_SET -->
+# Error rate known words, Error rate unkonwn, Total error rate
+# 0.08273219116321007 0.7893356643356644 0.16343849840255587
+# ErrorRates TEST_SET  <--
+#
+# Viterbi:
+# ErrorRates TEST_SET -->
+# 0.6608844311022964 0.7615091607670845 0.7246654387908575
+# ErrorRates TEST_SET  <--
+#
+#
+# CONCLUSION: BIGRAM HMM VITERBI WITHOUT SMOOTHING DOES NOT PERFORM WELL
+
+
+# i = 0
+# for test_sent in test_set:
+#     sent = [word for word, tag in test_sent]
+#     mostlikelytagsequence = viterbi(sent, dqml, eqml)
+#     print('most likely tag sequence for test sentence -->')
+#     print(sent)
+#     print(mostlikelytagsequence)
+#     print(test_sent)
+#     # ANSWER FOR 2)c) (iii)
+#     err_rate_known, err_rate_unknown, total_err = computeErrorRate(test_sent, mostlikelytagsequence)
+#     print('ErrorRates -->')
+#     print(err_rate_known, err_rate_unknown, total_err)
+#     print('ErrorRates <--')
+#     print('<---------------------------------------------')
+#     i += 1
+#     if i > 5:
+#         break
 
 

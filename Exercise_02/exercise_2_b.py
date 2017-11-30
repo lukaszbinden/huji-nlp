@@ -125,6 +125,10 @@ def computeErrorRate(test_set, words_likely_tags):
 
                 total_unknown_predictions += 1
 
+    print('correct_predictions......... = ', correct_predictions)
+    print('total_predictions........... = ', total_predictions)
+    print('correct_unknown_predictions. = ', correct_unknown_predictions)
+    print('total_unknown_predictions... = ', total_unknown_predictions)
     err_rate_known = 1 - correct_predictions/total_predictions
     err_rate_unknown = 1 - correct_unknown_predictions/total_unknown_predictions
     # total_err = err_rate_known + err_rate_unknown
@@ -136,19 +140,23 @@ def computeErrorRate(test_set, words_likely_tags):
 
 # ANSWER FOR 2)b) (i)
 words_likely_tags = getMostLikelyTag(train_set)
-print('MostLikelyTags -->')
-j = 0
-for i in words_likely_tags:
-    print(i, words_likely_tags[i])
-    j = j + 1
-    if j is 20:
-        break
-print('MostLikelyTags <--')
+print('words_likely_tags')
+print(words_likely_tags)
+# print('MostLikelyTags -->')
+# j = 0
+# for i in words_likely_tags:
+#     print(i, words_likely_tags[i])
+#     j = j + 1
+#     if j is 20:
+#         break
+# print('MostLikelyTags <--')
+
 # ANSWER FOR 2)b) (ii)
+print('num test sents: ', len(test_set))
 err_rate_known, err_rate_unknown, total_err = computeErrorRate(test_set, words_likely_tags)
-print('ErrorRates -->')
+print('ErrorRates TEST_SET -->')
 print(err_rate_known, err_rate_unknown, total_err)
-print('ErrorRates <--')
+print('ErrorRates TEST_SET  <--')
 
 
 
