@@ -305,9 +305,6 @@ print('ErrorRates TEST_SET  <--')
 # ErrorRates TEST_SET  <--
 
 
-# Conclusion: add-one smoothing makes a significant difference in the
-# performance of the Viterbi algorithm (55% vs. 72%)!
-# But apparently still not as good as the most likely tag baseline
-# (55% vs. 16%).
+# Conclusion:
 
 
