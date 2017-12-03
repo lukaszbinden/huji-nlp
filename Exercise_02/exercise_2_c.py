@@ -115,15 +115,16 @@ def viterbi(sent, dqml, eqml):
         #print('k ========================= ', k)
         bp[k] = {}
         for v in S:
+            emlr = eml(sent_words[k-1], v, eqml)
             if k-1 is 0: # w e S_0 -> w = '*'
-                pival = pi[0]['*'] * qml(v,'*',dqml) * eml(sent_words[0],v,eqml)
+                pival = pi[0]['*'] * qml(v, '*', dqml) * emlr
                 pi[k][v] = pival
                 bp[k][v] = '*'
             else: # for w e S_k, S_k = S
                 max_S = None
                 max_w = -1
                 for w in S:
-                    currmax = pi[k-1][w] * qml(v,w,dqml) * eml(sent_words[k-1],v,eqml)
+                    currmax = pi[k-1][w] * qml(v, w, dqml) * emlr
                     if currmax > 0 and currmax > max_w:
                         max_w = currmax
                         max_S = w
@@ -131,7 +132,6 @@ def viterbi(sent, dqml, eqml):
                 if max_S is None:
                     max_w = 0.0
                     max_S = UNKNOWN_TAG
-                #print('k = ', k, ', max_w = ', max_w, ', max_S = ', max_S, ', v = ', v)
                 pi[k][v] = max_w
                 bp[k][v] = max_S
 
