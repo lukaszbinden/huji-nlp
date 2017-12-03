@@ -1,4 +1,5 @@
 import nltk
+import re
 from nltk.corpus import brown
 from nltk import word_tokenize
 from collections import Counter, defaultdict
@@ -26,44 +27,33 @@ test_set = news_sents[set_size:]
 ################################################
 
 
-def pw(tok):
-    """
-    Returns the pseudoword of a token.
-    :param tok: a word/token
-    :return pseudoword: a pseudoword/word class for the given token
-    """
-    if tok.isdigit():
-        return 'ps_Number'
-    elif tok.isupper():
-        return 'ps_Abrev.'
-    elif tok.endswith('ed'):
-        return 'ps_-ed'
-    elif tok.endswith('ing'):
-        return 'ps_-ing'
-    elif tok.endswith(("'s", "s'")):
-        return 'ps_Gen'
-    elif tok.endswith('ed'):
-        return 'ps_-ed'
-    elif tok.endswith(('ate', 'en', 'ify', 'ise', 'ize')):
-        return 'ps_Verb'
-    elif tok.endswith(('ly', 'wards', 'wards', 'wise')):
-        return 'ps_ADV'
-    elif tok.endswith(('age', 'ance', 'ence', 'dom', 'ee', 'er', 'or', 'hood', 'ism', 'ist', 'ty', 'ment', 'ness',
-                       'ry', 'ship', 'sion', 'tion', 'xion')):
-        return 'ps_Noun'
-    elif tok.istitle():
-        return 'ps_Noun'
-    elif tok.endswith(('able', 'ible', 'al', 'en', 'ese', 'ful', 'i', 'ic', 'ish', 'ive', 'ian', 'less', 'ly', 'ous',
-                      'y')):
-        return 'ps_ADJ'
-    elif '\'' in tok:
-        return 'ps_apos'
-    elif tok.islower():
-        return 'ps_lower'
-    elif tok.endswith('%') and tok[:len(tok)-1].isdigit():
-        return 'ps_initCap'
-    else:
-        return UNKNOWN_TAG
+PSEUDOWORDS = {"^anti.*": "antifreeze",
+               "^de.*": "defrost",
+               "^dis.*": "disagree",
+               "^(?:en.*|em.*)": "embrace",
+               "^fore.*": "forecast",
+               "^(?:in.*|im.*)": "infield",
+               "^(?:in.*|im.*|il.*|ir.*)": "impossible",
+               "^inter.*": "interact",
+               "^mid.*": "midway",
+               "^mis.*": "misfire",
+               "^non.*": "nonsense",
+               "^over.*": "overlook",
+               "^pre.*": "prefix",
+               "^re.*": "return",
+               "^semi.*": "semicircle",
+               "^sub.*": "submarine",
+               "^super.*": "superstar",
+               "^trans.*": "transport",
+               "^un.*": "unfriendly",
+               "^under.*": "undersea"}
+
+
+def pw(word):
+    for pat in PSEUDOWORDS.keys():
+        if re.findall(pat, word, re.I):
+            return PSEUDOWORDS[pat]
+    return word
 
 
 def train_eml(train_set):
@@ -301,7 +291,7 @@ print('ErrorRates TEST_SET  <--')
 #
 # e)ii) Viterbi using pseudo-words and maximum likelihood estimation
 # ErrorRates TEST_SET -->
-# 0.9047895402062137 0.06277056277056277 0.9029598894933452
+# 0.5999196812603557 0.7348903500082796 0.6895214188625336
 # ErrorRates TEST_SET  <--
 
 

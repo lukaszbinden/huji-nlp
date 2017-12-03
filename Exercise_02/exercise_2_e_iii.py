@@ -1,4 +1,5 @@
 import nltk
+import re
 from nltk.corpus import brown
 from nltk import word_tokenize
 from collections import Counter, defaultdict
@@ -6,7 +7,7 @@ from collections import Counter, defaultdict
 WORD = 0
 TAG = 1
 UNKNOWN_TAG = 'NN'
-COUNT_CUTOFF = 5 #
+COUNT_CUTOFF = 5
 
 # load new categry
 news_sents = brown.tagged_sents(categories='news')
@@ -24,6 +25,35 @@ test_set = news_sents[set_size:]
 # Confer functions pw(tok) and train_eml(train_set) and
 # eml_use_pseudowords_and_mle(xi, yi, deml).
 ################################################
+
+
+PSEUDOWORDS = {"^anti.*": "antifreeze",
+               "^de.*": "defrost",
+               "^dis.*": "disagree",
+               "^(?:en.*|em.*)": "embrace",
+               "^fore.*": "forecast",
+               "^(?:in.*|im.*)": "infield",
+               "^(?:in.*|im.*|il.*|ir.*)": "impossible",
+               "^inter.*": "interact",
+               "^mid.*": "midway",
+               "^mis.*": "misfire",
+               "^non.*": "nonsense",
+               "^over.*": "overlook",
+               "^pre.*": "prefix",
+               "^re.*": "return",
+               "^semi.*": "semicircle",
+               "^sub.*": "submarine",
+               "^super.*": "superstar",
+               "^trans.*": "transport",
+               "^un.*": "unfriendly",
+               "^under.*": "undersea"}
+
+
+def pw2(word):
+    for pat in PSEUDOWORDS.keys():
+        if re.findall(pat, word, re.I):
+            return PSEUDOWORDS[pat]
+    return word
 
 
 def pw(tok):
@@ -90,7 +120,7 @@ def train_eml(train_set):
     for tag in deml:
         for word in deml[tag]:
             if deml[tag][word] < COUNT_CUTOFF:
-                pseudoword = pw(word)
+                pseudoword = pw2(word)
                 # print('replace LFW "', word, '" with pw "', pseudoword, '"')
                 demlpw[tag][pseudoword] = deml[tag][word]
             else:
@@ -111,7 +141,7 @@ def eml_use_pseudowords_and_addone(xi, yi, deml):
     """
 
     if xi not in eqml[yi]:
-        pwr = pw(xi)  # use pseudoword instead because word xi is unknown
+        pwr = pw2(xi)  # use pseudoword instead because word xi is unknown
         # print('replace word = ', xi, ' with pw = ', pwr)
         xi = pwr
 
@@ -297,7 +327,7 @@ print(test_set_err_rate_known, test_set_err_rate_unknown, test_set_total_err)
 print('ErrorRates TEST_SET  <--')
 
 cm = nltk.ConfusionMatrix(testtags, predtags)
-print(cm.pretty_format(sort_by_count=True, show_percents=False, truncate=40))
+print(cm.pretty_format(sort_by_count=True, show_percents=False))  # , truncate=40
 
 
 # OUTPUT OF EXECUTION:
@@ -320,71 +350,23 @@ print(cm.pretty_format(sort_by_count=True, show_percents=False, truncate=40))
 #
 # e)ii) Viterbi using pseudo-words and maximum likelihood estimation
 # ErrorRates TEST_SET -->
-# 0.9047895402062137 0.06277056277056277 0.9029598894933452
+# 0.5999196812603557 0.7348903500082796 0.6895214188625336
 # ErrorRates TEST_SET  <--
 #
 #
 # e)iii) Viterbi using pseudo-words and add-one smoothing
 # ErrorRates TEST_SET -->
-# 0.7045828084012437 0.042388167388167385 0.6977502026297053
+# 0.5583202057962505 0.04098124098124097 0.5460324985805722
 # ErrorRates TEST_SET  <--
 
 #################################
 # Confusion matrix:
 #
-#       |                                                           N                                                               J       N                             |
-#       |                                                           N                                       P                       J   B   P                             |
-#       |               N                               V   V       -           V       P       B       P   P           V       B   -   E   -   W           B   P   N   W |
-#       |   N   I   A   N       J       N   C   V   R   B   B   C   T   C   T   B   A   P   M   E   Q   P   S   D   R   B   `   E   T   D   T   D   '   -   E   P   P   P |
-#       |   N   N   T   S   ,   J   .   P   C   B   B   N   D   D   L   S   O   G   P   $   D   Z   L   S   S   T   P   Z   `   R   L   Z   L   T   '   -   D   O   S   S |
-# ------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-#    NN |<213>  1   .  16   .  11   .  12   .   2   2   5   .   3   9   .   .   .   .   3   .   .   .   2   3   .   2   .   .   .   .   .   4   2   2   3   .   2   9   1 |
-#    IN |   .<365>  1   .   .   .   .   1   1   1   .   1   .   .   .   5  11   .   .   .   .   .   .   .   .   .   1   .   2   .   .   .   .   .   .   2   .   .   .   . |
-#    AT |   .   .<483>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#   NNS |   8   .   . <61>  .   .   .   3   .   .   .   5   .   2   5   .   .   1   .   .   1   .   1   .   4   .   2   3   .   .   .   .   3   .   .   .   .   .   1   . |
-#     , |   .   .   .   .<252>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    JJ |   3   .   .   1   . <55>  .   6   .   1   3  10   .   1   1   .   .   .   .   .   .   .   1   .   1   .   2   .   .   .   1   .   1   .   .   .   .   .   .   . |
-#     . |   .   .   .   .   .   .<441>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    NP |   7   1   1   1   .   5   . <34>  .   8   .   .   1   1   2   .   .   .   .   .   2   .   1   4   1   .   .   .   .   .   1   .  11   .   1   2   .   3   7   2 |
-#    CC |   .   .   .   .   .   .   .   2 <77>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    VB |   .   .   .   .   .   .   .   3   . <73>  .   1   .   .   1   1   .   .   .   .   .   .   .   .   .   .   1   1   .   .   .   .   .   .   .   .   .   .   .   . |
-#    RB |   .   1   .   3   .   1   1   8   .   . <23>  1   .   .   .   .   .   1   1   .   1   .   .   .   .   .   3   .   3   .   1   1   .   .   .   2   .   1   .   . |
-#   VBN |   .   .   .   .   .   2   .   .   .   .   1 <46>  3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   1   .   .   .   .   .   .   .   . |
-#   VBD |   1   .   .   .   .   .   .   .   .   5   .   6 <38>  .   .   .   .   .   .   .   1   .   .   .   .   .   .   1   .   .   1   .   .   .   1   1   .   .   .   . |
-#    CD |   1   .   .   1   .   .   .   1   .   .   .   1   . <33>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   1   1   .   .   .   . |
-# NN-TL |   .   .   .   .   .   1   .   1   .   1   .   1   .   . <26>  .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   1   .   4   .   .   .   .   .   .   . |
-#    CS |   .   2   .   .   .   .   .   .   .   .   .   .   .   .   . <50>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    TO |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <59>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#   VBG |   2   .   .   .   .   1   .   .   .   .   .   4   .   .   .   1   .  <9>  .   .   .   .   .   .   .   .   .   .   2   .   .   .   5   .   1   .   .   .   .   1 |
-#    AP |   1   .   .   .   .   .   .   .   .   .   1   5   .   .   .   .   .   . <14>  1   .   .   1   .   .   .   .   .   1   .   .   .   1   .   1   .   .   .   .   . |
-#   PP$ |   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   . <24>  .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    MD |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <29>  .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#   BEZ |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <35>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    QL |   .   .   .   .   .   .   .   .   .   .   1   3   .   .   .   1   .   .   1   .   .   .  <7>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#   PPS |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <36>  .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#  PPSS |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <31>  .   .   .   .   .   .   .   .   .   .   .   .   .   .   . |
-#    DT |   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   3   .   .   .   .   .   .   .   .   . <21>  .   .   1   .   .   .   .   .   .   .   .   .   .   2 |
-#    RP |   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <14>  .   .   .   .   .   .   .   .   .   .   .   .   . |
-#   VBZ |   .   .   .   .   .   .   .   .   .   1   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <1>  .   1   .   .   .   .   .   1   .   .   .   1 |
-#    `` |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <43>  .   .   .   .   .   .   .   .   .   .   . |
-#   BER |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <18>  .   .   .   .   .   .   .   .   .   . |
-# JJ-TL |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <8>  .   1   .   .   .   .   .   .   . |
-#  BEDZ |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <28>  .   .   .   .   .   .   .   . |
-# NP-TL |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <13>  .   .   .   .   .   .   . |
-#   WDT |   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <5>  .   .   .   .   .   . |
-#    '' |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   . <39>  .   .   .   .   . |
-#    -- |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <5>  .   .   .   . |
-#   BED |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <9>  .   .   . |
-#   PPO |   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   . <10>  .   . |
-#   NPS |   4   .   .   .   .   2   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <4>  . |
-#   WPS |   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  <3>|
-# ------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+# see separate file confusion_matrix.txt
 
 
 
-# Conclusion: add-one smoothing makes a significant difference in the
-# performance of the Viterbi algorithm (55% vs. 72%)!
-# But apparently still not as good as the most likely tag baseline
-# (55% vs. 16%).
+# Conclusion:
+# According to the confusion matrix, the algorithm performs poorly with tags FW-NN,, FW-IN, FW-NN-TL, NP-HL, ,-HL.
 
 
