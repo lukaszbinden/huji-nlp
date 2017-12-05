@@ -13,6 +13,7 @@ COUNT_CUTOFF = 5
 SMOOTH = 1
 PSEUDO = 2
 PSEUDO_SMOOTH = 3
+OTHER = 'other'
 
 # load new category
 news_sents = brown.tagged_sents(categories='news')
@@ -140,10 +141,10 @@ def computeErrorRate(test_set, words_likely_tags):
 
                 total_unknown_predictions += 1
 
-    print('correct_predictions......... = ', correct_predictions)
-    print('total_predictions........... = ', total_predictions)
-    print('correct_unknown_predictions. = ', correct_unknown_predictions)
-    print('total_unknown_predictions... = ', total_unknown_predictions)
+    # print('correct_predictions......... = ', correct_predictions)
+    # print('total_predictions........... = ', total_predictions)
+    # print('correct_unknown_predictions. = ', correct_unknown_predictions)
+    # print('total_unknown_predictions... = ', total_unknown_predictions)
     err_rate_known = 1 - correct_predictions/total_predictions
     err_rate_unknown = 1 - correct_unknown_predictions/total_unknown_predictions
     # total_err = err_rate_known + err_rate_unknown
@@ -156,11 +157,11 @@ def computeErrorRate(test_set, words_likely_tags):
 
 # ANSWER FOR 2)b) (i)
 words_likely_tags = getMostLikelyTag(train_set)
-print('words_likely_tags')
-print(words_likely_tags)
+# print('words_likely_tags')
+# print(words_likely_tags)
 
 # ANSWER FOR 2)b) (ii)
-print('num test sents: ', len(test_set))
+# print('num test sents: ', len(test_set))
 err_rate_known, err_rate_unknown, total_err = computeErrorRate(test_set, words_likely_tags)
 print('ErrorRates TEST_SET -->')
 print(err_rate_known, err_rate_unknown, total_err)
@@ -265,11 +266,11 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
                 pival = pi[0]['*'] * qmlr * eml
                 pi[k][v] = pival
                 bp[k][v] = '*'
-            else: # for w e S_k, S_k = S
-                qmlr = compute_qml(V_CASE, dqml, v, w)
+            else:  # for w e S_k, S_k = S
                 max_S = None
                 max_w = -1
                 for w in S:
+                    qmlr = compute_qml(V_CASE, dqml, v, w)
                     currmax = pi[k-1][w] * qmlr * eml
                     if currmax > 0 and currmax > max_w:
                         max_w = currmax
@@ -357,7 +358,7 @@ def computeErrorRate(test_sent, viterbi_tag_sequence):
     return err_rate_known, err_rate_unknown, total_err
 
 
-def run_tests_compute_error_rates(dqml, eqml, V_CASE=-1, CONF_MATRIX=0):
+def run_tests_compute_error_rates(dqml, eqml, S, V_CASE=-1, CONF_MATRIX=0):
     test_set_total_tests = 0
     test_set_err_rate_known = 0
     test_set_err_rate_unknown = 0
@@ -368,11 +369,11 @@ def run_tests_compute_error_rates(dqml, eqml, V_CASE=-1, CONF_MATRIX=0):
     for test_sent in test_set:
         test_set_total_tests += 1
         sent = [word for word, tag in test_sent]
-        tagsequence = viterbi(sent, dqml, eqml, V_CASE)
+        tagsequence = viterbi(sent, dqml, eqml, S, V_CASE)
         if CONF_MATRIX:
             predtags.extend(tagsequence)
         err_rate_known, err_rate_unknown, total_err = computeErrorRate(test_sent, tagsequence)
-        print(err_rate_known, err_rate_unknown, total_err)
+        # print(err_rate_known, err_rate_unknown, total_err)
         test_set_err_rate_known += err_rate_known
         test_set_err_rate_unknown += err_rate_unknown
         test_set_total_err += total_err
@@ -382,7 +383,17 @@ def run_tests_compute_error_rates(dqml, eqml, V_CASE=-1, CONF_MATRIX=0):
     test_set_err_rate_known /= test_set_total_tests
     test_set_err_rate_unknown /= test_set_total_tests
     test_set_total_err /= test_set_total_tests
-    print('ErrorRates TEST_SET --> [', V_CASE, ']')
+
+    if V_CASE == SMOOTH:
+        label = 'smoothing | (d) ii'
+    elif V_CASE == PSEUDO:
+        label = 'pseudo | (e) ii'
+    elif V_CASE == PSEUDO_SMOOTH:
+        label = 'pseudo+smoothing | (e) iii'
+    else:
+        label = 'inital | (c) iii'
+
+    print('ErrorRates TEST_SET --> [', label, ']')
     print(test_set_err_rate_known, test_set_err_rate_unknown, test_set_total_err)
     print('ErrorRates TEST_SET  <--')
     if CONF_MATRIX:
@@ -396,14 +407,14 @@ def run_tests_compute_error_rates(dqml, eqml, V_CASE=-1, CONF_MATRIX=0):
 # results from b)ii).
 ################################################
 
+dqml = train_qml(train_set)
 
 # compute S (set of tags) from dictionary (only do it once)
 S = [tag for tag in dqml]
 S.remove('*')
 
-dqml = train_qml(train_set)
 eqml = train_eml(train_set)
-run_tests_compute_error_rates(dqml, eqml, S)
+run_tests_compute_error_rates(dqml, eqml, S, -1, 0)
 
 # -----------------------
 # ------- (d) -----------
@@ -432,7 +443,7 @@ def qml_add_smooth(yi, yi1, dqml):
 # results from b)ii) and c)iii).
 ################################################
 
-run_tests_compute_error_rates(dqml, eqml, S, SMOOTH)
+run_tests_compute_error_rates(dqml, eqml, S, SMOOTH, 0)
 
 
 # -----------------------
@@ -450,26 +461,15 @@ print(" --------------------- ")
 # Confer functions pw(tok) and train_eml(train_set) and
 # eml_use_pseudowords_and_mle(xi, yi, deml).
 ################################################
-PSEUDOWORDS = {"^anti.*": "antifreeze",
-               "^de.*": "defrost",
-               "^dis.*": "disagree",
-               "^(?:en.*|em.*)": "embrace",
-               "^fore.*": "forecast",
-               "^(?:in.*|im.*)": "infield",
-               "^(?:in.*|im.*|il.*|ir.*)": "impossible",
-               "^inter.*": "interact",
-               "^mid.*": "midway",
-               "^mis.*": "misfire",
-               "^non.*": "nonsense",
-               "^over.*": "overlook",
-               "^pre.*": "prefix",
-               "^re.*": "return",
-               "^semi.*": "semicircle",
-               "^sub.*": "submarine",
-               "^super.*": "superstar",
-               "^trans.*": "transport",
-               "^un.*": "unfriendly",
-               "^under.*": "undersea"}
+PSEUDOWORDS = {
+    "\d+.{0,1}\d*$": 'NUM',
+    "-year-old$": 'AGE',
+    "[$]": 'PRICE',
+    "^\d+/\d+/{0,1}\d*$": 'DATE',
+    "^\d+-\d+-{0,1}\d*$": 'digitsAndDash',
+    "^[A-Z]+$":  'ALLCAPS',
+    "^[A-Za-z][.][A-Za-z]([.][A-Za-z])*$": 'INITIALS'
+}
 
 
 def pw(word):
@@ -494,12 +494,18 @@ def train_eml_pseudo(train_set):
     demlpw = defaultdict(Counter)
     for tag in deml:
         for word in deml[tag]:
-            if deml[tag][word] < COUNT_CUTOFF:
-                pseudoword = pw(word)
+            pseudoword = pw(word)
 
-                demlpw[tag][pseudoword] = deml[tag][word]
+            if deml[tag][word] < COUNT_CUTOFF:
+                if OTHER in demlpw[tag]:
+                    demlpw[tag][OTHER] += deml[tag][word]
+                else:
+                    demlpw[tag][OTHER] = deml[tag][word]
             else:
-                demlpw[tag][word] = deml[tag][word]
+                if pseudoword in demlpw[tag]:
+                    demlpw[tag][pseudoword] += deml[tag][word]
+                else:
+                    demlpw[tag][pseudoword] = deml[tag][word]
 
     return demlpw
 
@@ -531,7 +537,7 @@ def eml_use_pseudowords_and_mle(xi, yi, deml):
 dqml = train_qml(train_set)
 eqml = train_eml_pseudo(train_set)
 
-run_tests_compute_error_rates(dqml, eqml, S, PSEUDO)
+run_tests_compute_error_rates(dqml, eqml, S, PSEUDO, 0)
 
 
 ################################################
