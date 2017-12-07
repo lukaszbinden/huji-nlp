@@ -23,6 +23,87 @@ set_size = round(len(news_sents) * 0.9)
 train_set = news_sents[:set_size]
 test_set = news_sents[set_size:]
 
+PSEUDOWORDS = {
+    "\d+.{0,1}\d*$": 'NUM',
+    "-year-old$": 'AGE',
+    "[$]": 'PRICE',
+    "^\d+/\d+/{0,1}\d*$": 'DATE',
+    "^\d+-\d+-{0,1}\d*$": 'digitsAndDash',
+    "^[A-Z]+$":  'ALLCAPS',
+    "^[A-Za-z][.][A-Za-z]([.][A-Za-z])*$": 'INITIALS'
+}
+
+def pw(word):
+    for pat in PSEUDOWORDS.keys():
+        if re.findall(pat, word, re.I):
+            return PSEUDOWORDS[pat]
+    return word
+
+def eml_add_smooth(yi, xi, eqml):
+    """
+    Computes emission probability e(x_i | y_i) using maximum likelihood estimation on the training set
+    and add-one smoothing.
+    :param yi: a label/state y_i
+    :param xi: a word x_i
+    :param eqml: dictionary for eml where pre-computed values are available
+    :return: e(x_i | y_i)
+    """
+    return (eqml[yi][xi] + 1) / (sum(eqml[yi].values()) + len(eqml[yi].keys()))
+
+
+def eml_use_pseudowords_and_mle(xi, yi, deml):
+    """
+    Computes emission probability e(x_i | y_i) using maximum likelihood estimation and pseudowords
+    on the training set
+    :param xi: a word x_i
+    :param yi: a label/state y_i
+    :param train_set: the training set
+    :param deml: dictionary for eml where pre-computed values are available
+    :return: q(y_i | y_i-1)
+    """
+    if xi not in deml[yi]:
+        xi = pw(xi) # use pseudo-word instead
+
+    return (deml[yi][xi]) / (sum(deml[yi].values()))
+
+def eml_use_pseudowords_and_smooth(xi, yi, deml):
+    """
+    Computes emission probability e(x_i | y_i) using maximum likelihood estimation and pseudowords
+    on the training set
+    :param xi: a word x_i
+    :param yi: a label/state y_i
+    :param train_set: the training set
+    :param deml: dictionary for eml where pre-computed values are available
+    :return: q(y_i | y_i-1)
+    """
+    if xi not in deml[yi]:
+        xi = pw(xi) # use pseudo-word instead
+
+    return (deml[yi][xi] + 1) / (sum(deml[yi].values()) + len(deml[yi].keys()))
+
+
+def compute_propability(word, label, dict):
+    """
+    Computes probability q(word | label).
+    :param word: a word/state y_i
+    :param label: a label/state y_i-1
+    :param dict: dictionary where pre-computed values are stored
+    :return: dict(y_i | y_i-1)
+    """
+    return dict[label][word] / sum(dict[label].values())
+
+def compute_eml(V_CASE, eqml, k, sent_words, v):
+    if V_CASE == PSEUDO:
+        eml = eml_use_pseudowords_and_mle(sent_words[k - 1], v, eqml)
+    elif V_CASE == SMOOTH:
+        eml = eml_add_smooth(v, sent_words[k - 1], eqml)
+    elif PSEUDO_SMOOTH:
+        eml = eml_use_pseudowords_and_smooth(sent_words[k - 1], v, eqml)
+    else:
+        eml = compute_propability(sent_words[k - 1], v, eqml)
+    return eml
+
+
 # -----------------------
 # ------- (b) -----------
 # -----------------------
@@ -219,15 +300,6 @@ def train_qml(train_set):
     return dqml
 
 
-def compute_propability(word, label, dict):
-    """
-    Computes probability q(word | label).
-    :param word: a word/state y_i
-    :param label: a label/state y_i-1
-    :param dict: dictionary where pre-computed values are stored
-    :return: dict(y_i | y_i-1)
-    """
-    return dict[label][word] / sum(dict[label].values())
 
 
 ################################################
@@ -305,16 +377,6 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
     return tagSequence
 
 
-def compute_eml(V_CASE, eqml, k, sent_words, v):
-    if V_CASE == PSEUDO:
-        eml = eml_use_pseudowords_and_mle(sent_words[k - 1], v, eqml)
-    elif V_CASE == SMOOTH:
-        eml = eml_add_smooth(v, sent_words[k - 1], eqml)
-    elif PSEUDO_SMOOTH:
-        eml = eml_use_pseudowords_and_smooth(sent_words[k - 1], v, eqml)
-    else:
-        eml = compute_propability(sent_words[k - 1], v, eqml)
-    return eml
 
 
 def compute_qml(V_CASE, dqml, v, w):
@@ -441,31 +503,9 @@ def qml_add_smooth(yi, yi1, dqml):
     """
     return (dqml[yi1][yi] + 1) / (sum(dqml[yi1].values()) + len(dqml[yi1].keys()))
 
-def eml_add_smooth(yi, xi, eqml):
-    """
-    Computes emission probability e(x_i | y_i) using maximum likelihood estimation on the training set
-    and add-one smoothing.
-    :param yi: a label/state y_i
-    :param xi: a word x_i
-    :param eqml: dictionary for eml where pre-computed values are available
-    :return: e(x_i | y_i)
-    """
-    return (eqml[yi][xi] + 1) / (sum(eqml[yi].values()) + len(eqml[yi].keys()))
 
-def eml_use_pseudowords_and_smooth(xi, yi, deml):
-    """
-    Computes emission probability e(x_i | y_i) using maximum likelihood estimation and pseudowords
-    on the training set
-    :param xi: a word x_i
-    :param yi: a label/state y_i
-    :param train_set: the training set
-    :param deml: dictionary for eml where pre-computed values are available
-    :return: q(y_i | y_i-1)
-    """
-    if xi not in deml[yi]:
-        xi = pw(xi) # use pseudo-word instead
 
-    return (deml[yi][xi] + 1) / (sum(deml[yi].values()) + len(deml[yi].keys()))
+
 ################################################
 # (d) (ii)
 # Run the algorithm from c)ii) on the test set. Compute the error rate and compare it to the
@@ -473,6 +513,8 @@ def eml_use_pseudowords_and_smooth(xi, yi, deml):
 ################################################
 
 run_tests_compute_error_rates(dqml, eqml, S, SMOOTH, 0)
+
+
 
 
 # -----------------------
@@ -490,22 +532,9 @@ print(" --------------------- ")
 # Confer functions pw(tok) and train_eml(train_set) and
 # eml_use_pseudowords_and_mle(xi, yi, deml).
 ################################################
-PSEUDOWORDS = {
-    "\d+.{0,1}\d*$": 'NUM',
-    "-year-old$": 'AGE',
-    "[$]": 'PRICE',
-    "^\d+/\d+/{0,1}\d*$": 'DATE',
-    "^\d+-\d+-{0,1}\d*$": 'digitsAndDash',
-    "^[A-Z]+$":  'ALLCAPS',
-    "^[A-Za-z][.][A-Za-z]([.][A-Za-z])*$": 'INITIALS'
-}
 
 
-def pw(word):
-    for pat in PSEUDOWORDS.keys():
-        if re.findall(pat, word, re.I):
-            return PSEUDOWORDS[pat]
-    return word
+
 
 
 def train_eml_pseudo(train_set):
@@ -539,20 +568,6 @@ def train_eml_pseudo(train_set):
     return demlpw
 
 
-def eml_use_pseudowords_and_mle(xi, yi, deml):
-    """
-    Computes emission probability e(x_i | y_i) using maximum likelihood estimation and pseudowords
-    on the training set
-    :param xi: a word x_i
-    :param yi: a label/state y_i
-    :param train_set: the training set
-    :param deml: dictionary for eml where pre-computed values are available
-    :return: q(y_i | y_i-1)
-    """
-    if xi not in deml[yi]:
-        xi = pw(xi) # use pseudo-word instead
-
-    return (deml[yi][xi]) / (sum(deml[yi].values()))
 
 
 ################################################
