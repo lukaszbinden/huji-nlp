@@ -23,6 +23,14 @@ set_size = round(len(news_sents) * 0.9)
 train_set = news_sents[:set_size]
 test_set = news_sents[set_size:]
 
+arr = []
+for i in range(len(train_set)):
+    sent = train_set[i]
+    for word, tag in sent:
+        if word not in arr:
+            arr.append(word)
+train_set_size = len(arr)
+
 PSEUDOWORDS = {
     "\d+.{0,1}\d*$": 'NUM',
     "-year-old$": 'AGE',
@@ -48,7 +56,7 @@ def eml_add_smooth(yi, xi, eqml):
     :param eqml: dictionary for eml where pre-computed values are available
     :return: e(x_i | y_i)
     """
-    return (eqml[yi][xi] + 1) / (sum(eqml[yi].values()) + len(eqml[yi].keys()))
+    return (eqml[yi][xi] + 1) / (sum(eqml[yi].values()) + train_set_size)
 
 
 def eml_use_pseudowords_and_mle(xi, yi, deml):
@@ -79,7 +87,7 @@ def eml_use_pseudowords_and_smooth(xi, yi, deml):
     if xi not in deml[yi]:
         xi = pw(xi) # use pseudo-word instead
 
-    return (deml[yi][xi] + 1) / (sum(deml[yi].values()) + len(deml[yi].keys()))
+    return (deml[yi][xi] + 1) / (sum(deml[yi].values()) + train_set_size)
 
 
 def compute_propability(word, label, dict):
@@ -97,7 +105,7 @@ def compute_eml(V_CASE, eqml, k, sent_words, v):
         eml = eml_use_pseudowords_and_mle(sent_words[k - 1], v, eqml)
     elif V_CASE == SMOOTH:
         eml = eml_add_smooth(v, sent_words[k - 1], eqml)
-    elif PSEUDO_SMOOTH:
+    elif V_CASE == PSEUDO_SMOOTH:
         eml = eml_use_pseudowords_and_smooth(sent_words[k - 1], v, eqml)
     else:
         eml = compute_propability(sent_words[k - 1], v, eqml)
@@ -501,7 +509,7 @@ def qml_add_smooth(yi, yi1, dqml):
     :param dqml: dictionary for qml where pre-computed values are available
     :return: q(y_i | y_i-1)
     """
-    return (dqml[yi1][yi] + 1) / (sum(dqml[yi1].values()) + len(dqml[yi1].keys()))
+    return dqml[yi1][yi] / sum(dqml[yi1].values())
 
 
 
