@@ -213,7 +213,7 @@ def train_qml(train_set):
         sent = train_set[i]
         prior = '*'
         for word, tag in sent:
-            dqml[prior][tag] += 1  # TODO sure dqml[*prior*][tag]?
+            dqml[prior][tag] += 1
             prior = tag
         dqml[prior]['STOP'] += 1
     return dqml
@@ -221,7 +221,7 @@ def train_qml(train_set):
 
 def compute_propability(word, label, dict):
     """
-    Computes transition probability q(y_i | y_i-1) using maximum likelihood estimation on the training set.
+    Computes probability q(word | label).
     :param word: a word/state y_i
     :param label: a label/state y_i-1
     :param dict: dictionary where pre-computed values are stored
@@ -242,6 +242,7 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
     :param sent: a sentence x1....xn to find the most likely tag sequence y1...yn+1 for
     :param dqml: dictionary for q(s|u) based in training set
     :param deml: dictionary for e(x|s) based in training set
+    :param S: set of tags in the training corpus
     :param V_CASE: the algorithm used
     :return: the most likely tag sequence y1...yn+1 for input sent
     """
@@ -252,7 +253,7 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
         sent_words = word_tokenize(sent)
     n = len(sent_words)
 
-    # define and initalize PI table
+    # define and initialize PI table
     pi = defaultdict(Counter)
     pi[0]['*'] = 1
     bp = {}
@@ -284,7 +285,7 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
 
     # calculate y_n
     max_y = -1
-    yn  = None
+    yn = None
     for v in S:
         nextmax = pi[n][v] * compute_propability('STOP', v, dqml)
         if nextmax > max_y:
@@ -307,6 +308,10 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
 def compute_eml(V_CASE, eqml, k, sent_words, v):
     if V_CASE == PSEUDO:
         eml = eml_use_pseudowords_and_mle(sent_words[k - 1], v, eqml)
+    elif V_CASE == SMOOTH:
+        eml = eml_add_smooth(v, sent_words[k - 1], eqml)
+    elif PSEUDO_SMOOTH:
+        eml = eml_use_pseudowords_and_smooth(sent_words[k - 1], v, eqml)
     else:
         eml = compute_propability(sent_words[k - 1], v, eqml)
     return eml
@@ -434,9 +439,33 @@ def qml_add_smooth(yi, yi1, dqml):
     :param dqml: dictionary for qml where pre-computed values are available
     :return: q(y_i | y_i-1)
     """
-    return (dqml[yi1][yi] + 1) / (sum(dqml[yi1].values()) + len(dqml))
+    return (dqml[yi1][yi] + 1) / (sum(dqml[yi1].values()) + len(dqml[yi1].keys()))
 
+def eml_add_smooth(yi, xi, eqml):
+    """
+    Computes emission probability e(x_i | y_i) using maximum likelihood estimation on the training set
+    and add-one smoothing.
+    :param yi: a label/state y_i
+    :param xi: a word x_i
+    :param eqml: dictionary for eml where pre-computed values are available
+    :return: e(x_i | y_i)
+    """
+    return (eqml[yi][xi] + 1) / (sum(eqml[yi].values()) + len(eqml[yi].keys()))
 
+def eml_use_pseudowords_and_smooth(xi, yi, deml):
+    """
+    Computes emission probability e(x_i | y_i) using maximum likelihood estimation and pseudowords
+    on the training set
+    :param xi: a word x_i
+    :param yi: a label/state y_i
+    :param train_set: the training set
+    :param deml: dictionary for eml where pre-computed values are available
+    :return: q(y_i | y_i-1)
+    """
+    if xi not in deml[yi]:
+        xi = pw(xi) # use pseudo-word instead
+
+    return (deml[yi][xi] + 1) / (sum(deml[yi].values()) + len(deml[yi].keys()))
 ################################################
 # (d) (ii)
 # Run the algorithm from c)ii) on the test set. Compute the error rate and compare it to the
