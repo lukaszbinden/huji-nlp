@@ -10,12 +10,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="exercise_2_b.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-597">
-              <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+            <state relative-caret-position="2261">
+              <caret line="134" column="26" lean-forward="false" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -23,11 +23,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exercise_2_c.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exercise_2_c.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="60" column="32" lean-forward="true" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+            <state relative-caret-position="286">
+              <caret line="244" column="58" lean-forward="false" selection-start-line="244" selection-start-column="42" selection-end-line="244" selection-end-column="58" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -35,13 +35,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BigramTagger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BigramTagger.py">
+      <file leaf-file-name="nlp_exercise_2.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nlp_exercise_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+            <state relative-caret-position="165">
+              <caret line="369" column="27" lean-forward="true" selection-start-line="369" selection-start-column="27" selection-end-line="369" selection-end-column="27" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ex1 (1).py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ex1 (1).py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1445">
+              <caret line="89" column="32" lean-forward="false" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exercise_2_e_i_ii.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4828">
+              <caret line="288" column="60" lean-forward="false" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="60" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exercise_2_e_iii.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,19 +94,50 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>NP-TL</find>
-      <find>AT</find>
+      <find>print</find>
+      <find>pw2</find>
+      <find>qml</find>
+      <find>eml_</find>
+      <find>viterbi(</find>
+      <find>computeErrorRate(</find>
+      <find>eml_use_pseudowords_and_mleeml_use_pseudowords_and_mle</find>
+      <find>eml_use_pseudowords_and_mle</find>
+      <find>run_tests_compute_error_rates</find>
+      <find>print(</find>
       <find>UNKNOWN_TAG</find>
-      <find>range</find>
-      <find>HEAD</find>
+      <find>smooth</find>
+      <find>eml_add</find>
+      <find>pseudoword</find>
+      <find>compute_eml</find>
+      <find>train_eml</find>
+      <find>def train_eml</find>
+      <find>train_set_size</find>
+      <find>train_eml_pseudo(</find>
+      <find>run_tests_compute_error_rates(</find>
+      <find>pw2(</find>
+      <find>qml_add_smooth(</find>
+      <find>eml_use_pseudowords_and_mle(</find>
+      <find>PSEUDOWORDS</find>
+      <find>OTHER</find>
+      <find>qml_add_smooth</find>
+      <find>compute_qml</find>
+      <find>compute_propability(</find>
+      <find>lucas</find>
+      <find>pw(</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/exercise_2_b.py" />
         <option value="$PROJECT_DIR$/BigramTagger.py" />
+        <option value="$PROJECT_DIR$/exercise_2_b.py" />
+        <option value="$PROJECT_DIR$/exercise_2_e.py" />
         <option value="$PROJECT_DIR$/exercise_2_c.py" />
+        <option value="$PROJECT_DIR$/exercise_2_e_i_ii.py" />
+        <option value="$PROJECT_DIR$/exercise_2_e_iii.py" />
+        <option value="$PROJECT_DIR$/ex1.py" />
+        <option value="$PROJECT_DIR$/exercise_2_d.py" />
+        <option value="$PROJECT_DIR$/nlp_exercise_2.py" />
       </list>
     </option>
   </component>
@@ -110,7 +177,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lukaszbinden\git\huji-nlp\Exercise_02" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -124,8 +196,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.exercise_2_c">
-    <configuration name="BigramTagger" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.nlp_exercise_2">
+    <configuration name="exercise_2_d" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -137,12 +209,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Exercise_02" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BigramTagger.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercise_2_d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="exercise_2_b" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="exercise_2_e" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -154,12 +226,12 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Exercise_02" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercise_2_b.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\lukaszbinden\git\huji-nlp\Exercise_02\exercise_2_e_i_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="exercise_2_c" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="exercise_2_e_i_ii" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -171,21 +243,59 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Exercise_02" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercise_2_c.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercise_2_e_i_ii.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python.exercise_2_b" />
-      <item index="1" class="java.lang.String" itemvalue="Python.BigramTagger" />
-      <item index="2" class="java.lang.String" itemvalue="Python.exercise_2_c" />
+    <configuration name="exercise_2_e_iii" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Exercise_02" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exercise_2_e_iii.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="nlp_exercise_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Exercise_02" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nlp_exercise_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.exercise_2_d" />
+      <item index="1" class="java.lang.String" itemvalue="Python.exercise_2_e" />
+      <item index="2" class="java.lang.String" itemvalue="Python.exercise_2_e_i_ii" />
+      <item index="3" class="java.lang.String" itemvalue="Python.exercise_2_e_iii" />
+      <item index="4" class="java.lang.String" itemvalue="Python.nlp_exercise_2" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.exercise_2_c" />
-        <item index="1" class="java.lang.String" itemvalue="Python.BigramTagger" />
-        <item index="2" class="java.lang.String" itemvalue="Python.exercise_2_b" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.nlp_exercise_2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.exercise_2_e_iii" />
+        <item index="2" class="java.lang.String" itemvalue="Python.exercise_2_e_i_ii" />
+        <item index="3" class="java.lang.String" itemvalue="Python.exercise_2_e" />
+        <item index="4" class="java.lang.String" itemvalue="Python.exercise_2_d" />
       </list>
     </recent_temporary>
   </component>
@@ -194,20 +304,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21406959" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29307806" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.056732222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14306785" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42120767" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32890856" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -216,23 +327,335 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BigramTagger.py">
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        <state relative-caret-position="2261">
+          <caret line="134" column="26" lean-forward="false" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4097">
+          <caret line="244" column="58" lean-forward="false" selection-start-line="244" selection-start-column="42" selection-end-line="244" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ex1 (1).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="89" column="32" lean-forward="false" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4828">
+          <caret line="288" column="60" lean-forward="false" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5712">
+          <caret line="340" column="25" lean-forward="true" selection-start-line="340" selection-start-column="25" selection-end-line="340" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nlp_exercise_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="44" column="34" lean-forward="true" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-597">
+        <state relative-caret-position="2618">
+          <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="79" column="39" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ex1 (1).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="89" column="32" lean-forward="true" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4828">
+          <caret line="288" column="60" lean-forward="false" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5712">
+          <caret line="340" column="25" lean-forward="true" selection-start-line="340" selection-start-column="25" selection-end-line="340" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nlp_exercise_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5865">
+          <caret line="349" column="24" lean-forward="false" selection-start-line="349" selection-start-column="8" selection-end-line="349" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="133" column="39" lean-forward="false" selection-start-line="133" selection-start-column="39" selection-end-line="133" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="31" lean-forward="false" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="133" column="39" lean-forward="false" selection-start-line="133" selection-start-column="39" selection-end-line="133" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1326">
+          <caret line="82" column="31" lean-forward="false" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2618">
+          <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2006">
+          <caret line="121" column="18" lean-forward="false" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2703">
+          <caret line="162" column="39" lean-forward="false" selection-start-line="162" selection-start-column="39" selection-end-line="162" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3553">
+          <caret line="212" column="0" lean-forward="true" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2635">
+          <caret line="155" column="26" lean-forward="true" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3808">
+          <caret line="227" column="0" lean-forward="true" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
           <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
@@ -242,8 +665,92 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="60" column="32" lean-forward="true" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        <state relative-caret-position="1955">
+          <caret line="118" column="24" lean-forward="false" selection-start-line="118" selection-start-column="24" selection-end-line="118" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BigramTagger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/collections/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="541" column="0" lean-forward="false" selection-start-line="541" selection-start-column="0" selection-end-line="541" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ex1 (1).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="89" column="32" lean-forward="false" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_i_ii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4828">
+          <caret line="288" column="60" lean-forward="false" selection-start-line="288" selection-start-column="44" selection-end-line="288" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2261">
+          <caret line="134" column="26" lean-forward="false" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_d.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="125" column="38" lean-forward="false" selection-start-line="125" selection-start-column="38" selection-end-line="125" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_c.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="244" column="58" lean-forward="false" selection-start-line="244" selection-start-column="42" selection-end-line="244" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exercise_2_e_iii.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nlp_exercise_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="369" column="27" lean-forward="true" selection-start-line="369" selection-start-column="27" selection-end-line="369" selection-end-column="27" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
