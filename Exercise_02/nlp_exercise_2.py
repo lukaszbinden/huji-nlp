@@ -183,18 +183,16 @@ def computeErrorRate(test_set, words_likely_tags):
     :return: the error rates
     """
     # initiate vars
-    #### LUCAS NOTE ###-----**************!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    known_words = {} # those two dictionaries are optional lucas, just for debuging
-    unknown_words = {} # those two dictionaries are optional lucas, just for debuging
-    #### LUCAS NOTE ###-----**************!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    known_words = {}  # those two dictionaries are optional, just for debuging
+    unknown_words = {}  # those two dictionaries are optional, just for debuging
     correct_predictions = 0
     total_predictions = 0
     correct_unknown_predictions = 0
     total_unknown_predictions = 0
 
-    for i in range(len(test_set)): # iterate sentences
+    for i in range(len(test_set)):  # iterate sentences
         test_sent = test_set[i]
-        for j in range(len(test_sent)): # iterate words in sent
+        for j in range(len(test_sent)):  # iterate words in sent
             w = test_sent[j][WORD]
             t = test_sent[j][TAG]
 
@@ -343,7 +341,7 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
         for v in S:
             eml = compute_eml(V_CASE, eqml, k, sent_words, v)
             if k-1 is 0:  # w e S_0 -> w = '*'
-                qmlr = compute_qml(V_CASE, dqml, v, '*')
+                qmlr = compute_qml(dqml, v, '*')
                 pival = pi[0]['*'] * qmlr * eml
                 pi[k][v] = pival
                 bp[k][v] = '*'
@@ -351,7 +349,7 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
                 max_S = None
                 max_w = -1
                 for w in S:
-                    qmlr = compute_qml(V_CASE, dqml, v, w)
+                    qmlr = compute_qml(dqml, v, w)
                     currmax = pi[k-1][w] * qmlr * eml
                     if currmax > 0 and currmax > max_w:
                         max_w = currmax
@@ -386,13 +384,8 @@ def viterbi(sent, dqml, eqml, S, V_CASE=-1):
 
 
 
-
-def compute_qml(V_CASE, dqml, v, w):
-    if V_CASE == SMOOTH or V_CASE == PSEUDO_SMOOTH:
-        qmlr = qml_add_smooth(v, w, dqml)
-    else:
-        qmlr = compute_propability(v, w, dqml)
-    return qmlr
+def compute_qml(dqml, v, w):
+    return compute_propability(v, w, dqml)
 
 
 def computeErrorRate(test_sent, viterbi_tag_sequence):
@@ -498,20 +491,6 @@ run_tests_compute_error_rates(dqml, eqml, S, -1, 0)
 print(" --------------------- ")
 print(" ------- (d) --------- ")
 print(" --------------------- ")
-
-
-def qml_add_smooth(yi, yi1, dqml):
-    """
-    Computes transition probability q(y_i | y_i-1) using maximum likelihood estimation on the training set
-    and add-one smoothing.
-    :param yi1: a label/state y_i-1
-    :param yi: a label/state y_i
-    :param dqml: dictionary for qml where pre-computed values are available
-    :return: q(y_i | y_i-1)
-    """
-    return dqml[yi1][yi] / sum(dqml[yi1].values())
-
-
 
 
 ################################################
