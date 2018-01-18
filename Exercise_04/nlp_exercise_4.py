@@ -1,30 +1,36 @@
 import wikipedia, spacy
 
 
-def extractor_proper_nouns(wikipedia_page):
+def extractor_proper_nouns(document):
     """
-    Computes ...
-    :param wikipedia_page:
-    :return:
+    Computes a list of (Subject, Relation, Object) triplets. See comments in code for details.
+    :param document: the (wikipedia) document to process
+    :return: a list of (Subject, Relation, Object) triplets
     """
 
     nlp_model = spacy.load('en')
-    analyzed_page = nlp_model(page)
+    analyzed_page = nlp_model(document)
 
     result = []
     index = 1
+    # 3.a.i) Find all proper nouns in the corpus/document by locating consecutive sequences of
+    # tokens with the POS PROPN.
     for i in range(len(analyzed_page)):
         if index < len(analyzed_page):
             w = analyzed_page[index]
             if w.pos_ == 'PROPN':
-                word = w.text
+                quadruple = {'tokens': [], 'text': None, 'index': index, 'length': 1}
+                quadruple['tokens'].append(w)
+                text = w.text
                 off = 1
                 stop = False
                 while True:
                     if index + off < len(analyzed_page) - 1:
                         w1 = analyzed_page[index + off]
                         if w1.pos_ == 'PROPN':
-                            word = word + ' ' + w1.text
+                            text = text + ' ' + w1.text
+                            quadruple['tokens'].append(w1)
+                            quadruple['length'] = quadruple['length'] + 1
                             off = off + 1
                         else:
                             break
@@ -32,32 +38,54 @@ def extractor_proper_nouns(wikipedia_page):
                         stop = True
                         break
                 index = index + off  # add at least 1 plus number of consecutive nouns
-                result.append(word)
+                quadruple['text'] = text
+                result.append(quadruple)
                 if stop:
                     break  # stop for loop, reached end of page
             else:
-                index = index + 1
+                index = index    + 1
         else:
             break  # stop, reached end of page
 
-    return result
+    # 3.a.ii) Find all pairs of proper nouns such that all the tokens between them are
+    # non-punctuation (do not have the POS tag PUNCT) and at least one of the tokens between
+    # them is a verb (has the POS VERB).
+    pairsTriplets = []
+    for i in range(len(result) - 1):
+        firstQuadruple = result[i]
+        startIndex = firstQuadruple['index'] + firstQuadruple['length']
+        secondQuadruple = result[i+1]
+        endIndex = secondQuadruple['index']
 
+        tokens = []
+        noPunct = True
+        hasVerb = False
+        for j in range(startIndex, endIndex):
+            w = analyzed_page[j]
+            if w.pos_ == 'PUNCT':
+                noPunct = False
+                break  # no use in continuing loop
+            if w.pos_ == 'VERB':
+                hasVerb = True
+            if w.pos_ == 'VERB' or w.pos_ == 'ADP':
+                tokens.append(w)
 
+        if noPunct and hasVerb:
+            # Upon detecting a pair of proper nouns as above, output a (Subject, Relation, Object) triplet
+            triplet = (firstQuadruple['tokens'], tokens, secondQuadruple['tokens'])
+            pairsTriplets.append(triplet)
 
-
-
-
+    return pairsTriplets
 
 if __name__ == "__main__":
     print("ex4 -->")
 
-
+    print("ex4.3a) -->")
     page = wikipedia.page('Brad Pitt').content
     result = extractor_proper_nouns(page)
-
-    print("result is: ", result)
-
-
+    for q in result:
+        print(q)
+    print("ex4.3a) <--")
 
 
     print("ex4 <--")
