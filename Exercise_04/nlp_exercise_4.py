@@ -12,29 +12,33 @@ def extractor_proper_nouns(wikipedia_page):
     analyzed_page = nlp_model(page)
 
     result = []
+    index = 1
     for i in range(len(analyzed_page)):
-        if i < len(analyzed_page) - 1:
-            w = analyzed_page[i]
+        if index < len(analyzed_page):
+            w = analyzed_page[index]
             if w.pos_ == 'PROPN':
                 word = w.text
-                index = 1
+                off = 1
                 stop = False
                 while True:
-                    if i + index < len(analyzed_page) - 1:
-                        w1 = analyzed_page[i + index]
+                    if index + off < len(analyzed_page) - 1:
+                        w1 = analyzed_page[index + off]
                         if w1.pos_ == 'PROPN':
                             word = word + ' ' + w1.text
-                            index = index + 1
+                            off = off + 1
                         else:
                             break
-                else:
-                    stop = True
+                    else:
+                        stop = True
+                        break
+                index = index + off  # add at least 1 plus number of consecutive nouns
                 result.append(word)
                 if stop:
-                    break
-
-
-    # result = [w.text for w in analyzed_page if w.pos_ == 'PROPN']
+                    break  # stop for loop, reached end of page
+            else:
+                index = index + 1
+        else:
+            break  # stop, reached end of page
 
     return result
 
