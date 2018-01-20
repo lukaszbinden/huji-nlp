@@ -77,15 +77,76 @@ def extractor_proper_nouns(document):
 
     return pairsTriplets
 
+def extractor_dependency_tree(document):
+    """
+
+    :param document: the (wikipedia) document to process
+    :return: a list of (Subject, Relation, Object) triplets
+    """
+    nlp_model = spacy.load('en')
+    analyzed_page = nlp_model(document)
+    sents = list(analyzed_page.sents)
+
+    pairsTriplets = []
+    for sent in sents:
+        properNounHeads = []
+        for t in sent:
+            if t.pos_ == 'PROPN' and t.dep_ != 'compound':
+                properNounHeads.append(t)
+        print(properNounHeads)
+        properNounSet = {}
+        for head in properNounHeads:
+            properNounSet[head] = []
+            for t in sent:
+                if t.head == head and t.dep_ == 'compound':
+                    properNounSet[head].append(t)
+            properNounSet[head].append(head)
+        # for head in properNounSet:
+        #     print(properNounSet[head])
+        keys = list(properNounSet.keys())
+        for i in range(len(keys) - 1):
+            h1 = keys[i]
+            h2 = keys[i + 1]
+            print('h1=', h1, ', h2=', h2)
+            subj = properNounSet[h1]
+            obj = properNounSet[h2]
+            # condition #1:
+            if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
+                relation = h1.head
+                triplet = (subj, relation, obj)
+                pairsTriplets.append(triplet)
+
+            # condition #2:
+            # TODO at work (also unstimmigkeit:
+# ex4.3a) -->
+# ([Jerome, Smith], [likes], [Mary])
+# ex4.3a) <--
+# ex4.3b) -->
+# [Smith, Mary]
+# h1= Smith , h2= Mary
+# ([John, Jerome, Smith], likes, [Mary])
+# ex4.3b) <--
+
+    return pairsTriplets
+
+
 if __name__ == "__main__":
     print("ex4 -->")
 
     print("ex4.3a) -->")
-    page = wikipedia.page('Brad Pitt').content
+    # page = wikipedia.page('Brad Pitt').content
+    page = 'John Jerome Smith likes Mary.'
     result = extractor_proper_nouns(page)
     for q in result:
         print(q)
     print("ex4.3a) <--")
 
+    print("ex4.3b) -->")
+    # page = wikipedia.page('Brad Pitt').content
+    page = 'John Jerome Smith likes Mary.'
+    result = extractor_dependency_tree(page)
+    for q in result:
+        print(q)
+    print("ex4.3b) <--")
 
     print("ex4 <--")
