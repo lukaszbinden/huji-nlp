@@ -93,7 +93,7 @@ def extractor_dependency_tree(document):
         for t in sent:
             if t.pos_ == 'PROPN' and t.dep_ != 'compound':
                 properNounHeads.append(t)
-        print(properNounHeads)
+        # print(properNounHeads)
         properNounSet = {}
         for head in properNounHeads:
             properNounSet[head] = []
@@ -107,19 +107,24 @@ def extractor_dependency_tree(document):
         for i in range(len(keys) - 1):
             h1 = keys[i]
             h2 = keys[i + 1]
-            print('h1=', h1, ', h2=', h2)
+            # print('h1=', h1, ', h2=', h2)
             subj = properNounSet[h1]
             obj = properNounSet[h2]
             # condition #1:
             if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
+                print('condition #1 met!')
                 relation = [h1.head]
                 triplet = (subj, relation, obj)
                 pairsTriplets.append(triplet)
+                continue
 
             # condition #2:
-            # TODO at work 
-
-
+            if h1.head == h2.head.head and h1.dep_ == 'nsubj' and h2.head.dep_ == 'prep' and h2.dep_ == 'pobj':
+                print('condition #2 met!')
+                relation = [h1.head, h2.head]
+                triplet = (subj, relation, obj)
+                pairsTriplets.append(triplet)
+                continue
     return pairsTriplets
 
 
@@ -128,7 +133,8 @@ if __name__ == "__main__":
 
     print("ex4.3a) -->")
     # page = wikipedia.page('Brad Pitt').content
-    page = 'John Jerome Smith likes Mary.'
+    # page = 'John Jerome Smith likes Mary.'
+    page = 'John Jerome Smith met with Mary.'
     result = extractor_proper_nouns(page)
     for q in result:
         print(q)
@@ -136,7 +142,7 @@ if __name__ == "__main__":
 
     print("ex4.3b) -->")
     # page = wikipedia.page('Brad Pitt').content
-    page = 'John Jerome Smith likes Mary.'
+    # page = 'John Jerome Smith likes Mary.'
     result = extractor_dependency_tree(page)
     for q in result:
         print(q)
