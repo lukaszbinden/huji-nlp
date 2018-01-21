@@ -12,7 +12,7 @@ def extractor_proper_nouns(document):
     analyzed_page = nlp_model(document)
 
     result = []
-    index = 1
+    index = 0
     # 3.a.i) Find all proper nouns in the corpus/document by locating consecutive sequences of
     # tokens with the POS PROPN.
     for i in range(len(analyzed_page)):
@@ -112,20 +112,13 @@ def extractor_dependency_tree(document):
             obj = properNounSet[h2]
             # condition #1:
             if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
-                relation = h1.head
+                relation = [h1.head]
                 triplet = (subj, relation, obj)
                 pairsTriplets.append(triplet)
 
             # condition #2:
-            # TODO at work (also unstimmigkeit:
-# ex4.3a) -->
-# ([Jerome, Smith], [likes], [Mary])
-# ex4.3a) <--
-# ex4.3b) -->
-# [Smith, Mary]
-# h1= Smith , h2= Mary
-# ([John, Jerome, Smith], likes, [Mary])
-# ex4.3b) <--
+            # TODO at work 
+
 
     return pairsTriplets
 
