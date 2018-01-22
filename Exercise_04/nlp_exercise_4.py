@@ -1,7 +1,8 @@
 import wikipedia, spacy
+from random import randint
+from datetime import datetime
 
-
-def extractor_proper_nouns(document):
+def extractor_pos(document):
     """
     Computes a list of (Subject, Relation, Object) triplets. See comments in code for details.
     :param document: the (wikipedia) document to process
@@ -112,7 +113,7 @@ def extractor_dependency_tree(document):
             obj = properNounSet[h2]
             # condition #1:
             if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
-                print('condition #1 met!')
+                #print('condition #1 met!')
                 relation = [h1.head]
                 triplet = (subj, relation, obj)
                 pairsTriplets.append(triplet)
@@ -120,7 +121,7 @@ def extractor_dependency_tree(document):
 
             # condition #2:
             if h1.head == h2.head.head and h1.dep_ == 'nsubj' and h2.head.dep_ == 'prep' and h2.dep_ == 'pobj':
-                print('condition #2 met!')
+                #print('condition #2 met!')
                 relation = [h1.head, h2.head]
                 triplet = (subj, relation, obj)
                 pairsTriplets.append(triplet)
@@ -128,24 +129,70 @@ def extractor_dependency_tree(document):
     return pairsTriplets
 
 
+def run_extractors(page):
+    print("run_extractors -->")
+    print("input: ", page)
+    [print(t) for t in extractor_pos(page)]
+    [print(t) for t in extractor_dependency_tree(page)]
+    print("run_extractors <--")
+
+
+def print_to_file(f, title, posResult, dtResult):
+    print(title, file=f)
+    print("********** POS_extractor 30 random triplets..............: ", file=f)
+    randIndices = set()
+    while len(randIndices) < 30 and len(randIndices) != len(posResult):
+        randIndices.add(randint(0, len(posResult) - 1))
+    [print(posResult[index], file=f) for index in randIndices]
+    print("\n********** Dependency_tree__extractor 30 random triplets..: ", file=f)
+    randIndices.clear()
+    while len(randIndices) < 30 and len(randIndices) != len(dtResult):
+        randIndices.add(randint(0, len(dtResult) - 1))
+    [print(dtResult[index], file=f) for index in randIndices]
+    print("\n\n", file=f)
+
+
 if __name__ == "__main__":
     print("ex4 -->")
 
-    print("ex4.3a) -->")
-    # page = wikipedia.page('Brad Pitt').content
+    # print("3a) 3b) -->")
     # page = 'John Jerome Smith likes Mary.'
-    page = 'John Jerome Smith met with Mary.'
-    result = extractor_proper_nouns(page)
-    for q in result:
-        print(q)
-    print("ex4.3a) <--")
+    # run_extractors(page)
+    # page = 'John Jerome Smith met with Mary.'
+    # run_extractors(page)
+    # print("3a) 3b) <--")
 
-    print("ex4.3b) -->")
-    # page = wikipedia.page('Brad Pitt').content
-    # page = 'John Jerome Smith likes Mary.'
-    result = extractor_dependency_tree(page)
-    for q in result:
-        print(q)
-    print("ex4.3b) <--")
+    print("3c) -->")
+
+    f = open("ex4_random_triplets.txt", "w")
+    now = datetime.now()
+    print("Run at ", now, "\n", file=f)
+    print("Run at ", now)
+    trump = wikipedia.page('Donald Trump').content
+    print("Donald Trump page:")
+    trumpPosResult = extractor_pos(trump)
+    print("POS_extractor #triplets..............: ", len(trumpPosResult))
+    trumpDtResult = extractor_dependency_tree(trump)
+    print("Dependency_tree_extractor #triplets..: ", len(trumpDtResult))
+    print_to_file(f, "********** Donald Trump page:", trumpPosResult, trumpDtResult)
+
+    bradPitt = wikipedia.page('Brad Pitt').content
+    print("Brad Pitt page:")
+    bradPittPosResult = extractor_pos(bradPitt)
+    print("POS_extractor #triplets..............: ", len(bradPittPosResult))
+    bradPittDtResult = extractor_dependency_tree(bradPitt)
+    print("Dependency_tree_extractor #triplets..: ", len(bradPittDtResult))
+    print_to_file(f, "********** Brad Pitt page:", bradPittPosResult, bradPittDtResult)
+
+    jolie = wikipedia.page('Angelina Jolie').content
+    print("Angelina Jolie page:")
+    joliePosResult = extractor_pos(jolie)
+    print("POS_extractor #triplets..............: ", len(joliePosResult))
+    jolieDtResult = extractor_dependency_tree(jolie)
+    print("Dependency_tree_extractor #triplets..: ", len(jolieDtResult))
+    print_to_file(f, "********** Angelina Jolie page:", joliePosResult, jolieDtResult)
+    f.close()
+
+    print("3c) <--")
 
     print("ex4 <--")
