@@ -131,7 +131,6 @@ def extractor_dependency_tree(document):
             obj = properNounSet[h2]
             # condition #1:
             if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
-                #print('condition #1 met!')
                 relation = [h1.head]
                 triplet = [(subj, relation, obj), sent]
                 pairsTriplets.append(triplet)
@@ -139,7 +138,6 @@ def extractor_dependency_tree(document):
 
             # condition #2:
             if h1.head == h2.head.head and h1.dep_ == 'nsubj' and h2.head.dep_ == 'prep' and h2.dep_ == 'pobj':
-                #print('condition #2 met!')
                 relation = [h1.head, h2.head]
                 triplet = [(subj, relation, obj), sent]
                 pairsTriplets.append(triplet)
