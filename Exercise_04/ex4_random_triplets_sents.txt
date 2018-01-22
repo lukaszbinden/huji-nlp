@@ -1,0 +1,266 @@
+Run at  2018-01-22 16:47:28.954047 
+
+********** Donald Trump page:
+********** POS_extractor 30 random triplets..............: 
+1: When the White House later released Obama's long-form birth certificate, Trump took credit for obtaining the document, saying "I hope it checks out."
+2: In September 2016, Trump publicly acknowledged that Obama was born in the United States, and said that the rumors had been started by Hillary Clinton during her 2008 presidential campaign.
+
+
+3: Trump made his first speaking appearance at the Conservative Political Action Conference (CPAC) in February 2011.
+4: After Trump dismissed FBI Director James Comey, the Justice Department appointed a special counsel to continue the investigation into links between Russia and Trump campaign associates and any related matters.
+
+
+==
+5: In 1987, Trump registered as a Republican in Manhattan.
+6: Ivana became a naturalized United States citizen in 1988.
+7: After a landslide win in Indiana on May 3, 2016—which prompted the remaining candidates Cruz and John Kasich to suspend their presidential campaigns—RNC Chairman Reince Priebus declared Trump the presumptive Republican nominee.
+8: In early July, Clinton's lead narrowed in national polling averages following the FBI's re-opening of its investigation into her ongoing email controversy.
+
+
+9: On the campaign trail, Trump has referred to The Art of the Deal as his second favorite book after the Bible, saying, "Nothing beats the Bible."
+10: Two days later, Trump officially accepted the nomination in a 76-minute speech that was inspired by Richard Nixon's 1968 acceptance speech.
+11: During his undergraduate study, Trump joined his father Fred in revitalizing the foreclosed Swifton Village apartment complex in Cincinnati, Ohio, boosting the occupancy rate from 66% to 100%.
+
+12: On March 14, 2017, the first two pages of Trump's 2005 federal income tax returns were leaked to MSNBC's Rachel Maddow.
+13: Trump Tower was the setting of the NBC television show The Apprentice and includes a fully functional television studio set.
+
+
+14: In 1980, a general contractor who was unconnected to Trump began repairs on Central Park's Wollman Rink.
+15: In 1994, Trump got involved with the refurbishing of the Gulf and Western Building on Columbus Circle.
+16: In 1996, Trump acquired the Bank of Manhattan Trust Building, which was a vacant seventy-one story skyscraper on Wall Street that had briefly been the tallest building in the world when it was completed in 1930.
+17: Trump's election victory sparked protests across the United States, in opposition to his policies and his inflammatory statements.
+18: On the Saturday following Trump's inauguration, massive anti-Trump demonstrations took place in the United States and worldwide, notably the Women Marches, which gathered 2,600,000 people worldwide.
+19: On December 13 he was named Financial Times Person of the Year.
+20: In 2011, Forbes' financial experts estimated the value of the Trump brand at $200 million.
+21: In 1989 and 1990, Trump lent his name to the Tour de Trump cycling stage race, which was an attempt to create an American equivalent of European races such as the Tour de France or the Giro d'Italia.
+
+
+==== Miss Universe ====
+
+From 1996 to 2015, Trump owned part or all of the Miss Universe pageants.
+22: On January 31, Trump nominated U.S. Appeals Court judge Neil Gorsuch, described as a solid conservative, to fill the vacancy left on the Supreme Court by the death of Justice Antonin Scalia eleven months earlier.
+23: During his campaign, Trump repeatedly vowed to repeal and replace Obamacare.
+24: On October 24, 2017, the Supreme Court dismissed a March appeal as moot, while expressing "no views on the merits" of the case.
+25: In 2016, Trump advocated sending 20,000 to 30,000 U.S. troops to the region, a position he later retracted.
+
+26: On February 16, 2015, NBC announced that they would be renewing The Apprentice for a 15th season.
+27: Trump's racially insensitive statements have been condemned by many observers in the U.S. and around the world, but accepted by his supporters either as a rejection of political correctness or because they harbor similar racial sentiments.
+28: In August, Trump dramatically escalated his rhetoric against North Korea, warning that further provocation against the U.S. will be met with "fire and fury like the world has never seen."
+29: Trump warned Kim of strong retaliation if North Korea attacked Guam or U.S. allies.
+30: According to a Comey memo of a private conversation on February 14, 2017, Trump said he "hoped" Comey would drop the investigation into Michael Flynn, who had been forced to resign as National Security Advisor after it was discovered that he had misled the vice president about communications with Russian ambassador Sergey Kislyak.
+
+
+********** Dependency_tree__extractor 30 random triplets..: 
+1: Trump also owned the Miss Universe and Miss USA beauty pageants from 1996 to 2015.
+2: Trump grew up in Jamaica, Queens, and attended the Kew-Forest School from kindergarten through seventh grade.
+3: Trump did not serve in the military during the Vietnam War.
+4: Trump, who is Presbyterian, has cited Peale and his works during interviews when asked about the role of religion in his personal life.
+
+5: Trump receives Holy Communion, but he has said that he does not ask God for forgiveness.
+6: When Trump announced his candidacy for the presidency on June 16, 2015, he released a one-page financial summary that stated a net worth of $8,737,540,000.
+7: In 2001, Trump completed Trump World Tower, which was across from the headquarters of the United Nations.
+8: New Jersey legalized casino gambling in 1977, and Trump went to Atlantic City, New Jersey the following year in order to explore how he might get involved in a new business venture.
+9: The casino's poor financial results exacerbated disagreements between Trump and Holiday Corp., which led to Trump's paying $70 million in May 1986 to buy out their interest in the property.
+10: In September 1983, Trump purchased the New Jersey Generals—an American football team that played in the United States Football League (USFL)—from oil magnate J. Walter Duncan.
+11: In 2013, New York State filed a $40 million civil suit against Trump University; the suit alleged that the company made false statements and defrauded consumers.
+12: During the presidential campaign, Trump criticized presiding Judge Gonzalo P. Curiel, alleging bias in his rulings because of his Mexican heritage.
+13: From 2004 to 2014, the top donors to the foundation were Vince and Linda McMahon of WWE, who donated $5 million to the foundation after Trump appeared at WrestleMania in 2007.
+14: In February 2009, Trump appeared on the Late Show with David Letterman, and spoke about the automotive industry crisis of 2008–10.
+15: In February 2015, Trump told NBC that he was not prepared to sign on for another season of The Apprentice, as he mulled his political future.
+
+
+=== Political affiliations ===
+
+
+16: In 1999, Trump switched to the Reform Party and ran a presidential exploratory campaign for its nomination.
+17: From 2001 to 2008, Trump identified himself as a Democrat, but, in 2008, he endorsed Republican John McCain for president.
+18: When asked in 2015 which of the last four presidents he prefers, Trump picked Democrat Bill Clinton over the Republican Bushes.
+
+
+===
+19: Trump won ME-02 and 30 states including the perennial swing states of Florida, Iowa, and Ohio, and Clinton's "blue wall" states of Michigan, Pennsylvania, and Wisconsin, which had been Democratic strongholds since the 1990s.
+20: Trump initially said on Twitter that these were "professional protesters, incited by the media", and were "unfair", but he later stated that he loves their passion for the country.
+21: In 2017, Trump and other senior White House officials asked the Director of National Intelligence, the NSA Director, the FBI Director, and two chairs of congressional committees to publicly dispute the news reports about contacts between Trump associates and Russia.
+22: During the campaign, Trump repeatedly praised Russian President Vladimir Putin as a strong leader.
+23: He appointed his campaign CEO Steve Bannon as White House Chief Strategist; Bannon resigned on August 18, 2017 and no replacement has been named.
+
+
+==== Cabinet-level nominations ====
+
+
+24: In 1999, Trump told Larry King Live that "I believe in universal healthcare."
+25: He supports increasing United States military defense spending, but favors decreasing United States spending on NATO and in the Pacific region.
+26: Trump warned Kim of strong retaliation if North Korea attacked Guam or U.S. allies.
+27: Trump warned Kim of strong retaliation if North Korea attacked Guam or U.S. allies.
+28: On May 9, 2017, Trump dismissed FBI Director James Comey.
+29: In March and April, Trump had told Comey that the ongoing suspicions formed a "cloud" impairing his presidency, and asked him to publicly state that he was not personally under investigation.
+30: ==== Special counsel ====
+
+On May 17, 2017, Deputy Attorney General Rod Rosenstein appointed Robert Mueller, a former Director of the FBI, to serve as special counsel for the United States Department of Justice (DOJ).
+********** Brad Pitt page:
+********** POS_extractor 30 random triplets..............: 
+1: Pitt received his second and third Academy Award nominations for his leading performances in The Curious Case of Benjamin Button (2008) and Moneyball (2011).
+2: Pitt attended Kickapoo High School, where he was a member of the golf, swimming and tennis teams.
+3: Early work ===
+While struggling to establish himself in Los Angeles, Pitt took lessons from acting coach Roy London.
+4: The same year, Pitt co-starred in six episodes of the short-lived Fox drama Glory Days and took a supporting role in the HBO television film The Image.
+5: His love scene with Davis has been cited as the event that defined Pitt as a sex symbol.
+6: He played Early Grayce, a serial killer and the boyfriend of Lewis's character in a performance described by Peter Travers of Rolling Stone as "outstanding, all boyish charm and then a snort that exudes pure menace."
+7: Pitt also garnered attention for a brief appearance in the cult hit True Romance as a stoner named Floyd, providing much needed comic relief to the action film.
+8: Following the release of Interview with the Vampire, Pitt starred in Legends of the Fall (1994), based on a novel by the same name by Jim Harrison, set in the American West during the first four decades of the twentieth century.
+9: In 1995, Pitt starred alongside Morgan Freeman and Gwyneth Paltrow in the crime thriller Seven, playing a detective on the trail of a serial killer.
+10: He won a Golden Globe Award for Best Supporting Actor for the film and received his first Academy Award nomination for Best Supporting Actor.
+
+11: In 1999, Pitt portrayed Tyler Durden in Fight Club, a film adaptation of Chuck Palahniuk's novel of the same name, directed by David Fincher.
+12: Fight Club premiered at the 1999 Venice International Film Festival.
+13: Mick LaSalle of the San Francisco Chronicle said Pitt was "ideally cast as an Irishman whose accent is so thick even Brits can't understand him", going on to say that, before Snatch, Pitt had been "shackled by roles that called for brooding introspection, but recently he has found his calling in black comic outrageousness and flashy extroversion;" while Amy Taubin of The Village Voice claimed that "Pitt gets maximum comic mileage out of a one-joke role".
+
+14: The following year Pitt starred opposite Julia Roberts in the romantic comedy The Mexican, a film that garnered a range of reviews but enjoyed box office success.
+15: Stephen Hunter of The Washington Times stated that Pitt excelled at such a demanding role.
+16: Babel received seven Academy and Golden Globe award nominations, winning the Best Drama Golden Globe, and earned Pitt a nomination for the Best Supporting Actor Golden Globe.
+17: Directed by Andrew Dominik and produced by Pitt's company Plan B Entertainment, the film premiered at the 2007 Venice Film Festival, with Pitt playing a "scary and charismatic" role, according to Lewis Beale of Film Journal International, and earning Pitt the Volpi Cup award for Best Actor at the 64th Venice International Film Festival.
+18: Also in 2013, Pitt had a supporting role in Ridley Scott's The Counselor.
+
+19: Pitt starred in Fury, a World War II film directed and written by David Ayer, and co-starring Shia LaBeouf, Logan Lerman, Jon Bernthal and Michael Pena.
+20: In 2016 it was announced that Pitt will star in the upcoming sequel to World War Z, with official release date set as June 9, 2017.
+21: Next, Pitt will star in James Gray's deep space epic Ad Astra, in which he will play the slightly autistic space engineer Roy McBride who searches across the galaxy for his father, played by Tommy Lee Jones.
+
+
+==
+22: Pitt visited the University of Missouri campus in October 2004 to encourage students to vote in the 2004 U.S. presidential election, in which he supported John Kerry.
+23: Pitt visited the University of Missouri campus in October 2004 to encourage students to vote in the 2004 U.S. presidential election, in which he supported John Kerry.
+24: Pitt supports the ONE Campaign, an organization aimed at combating AIDS and poverty in the developing world.
+25: The first six homes were completed in October 2008, and in September 2009 Pitt received an award in recognition of the project from the U.S. Green Building Council, a non-profit trade organization that promotes sustainability in how buildings are designed, built and operated.
+26: In June 2009 the Jolie-Pitt Foundation donated $1 million to a U.N. refugee agency to help Pakistanis displaced by fighting between troops and Taliban militants.
+27: Pitt met Friends actress Jennifer Aniston in 1998 and married her in a private wedding ceremony in Malibu on July 29, 2000.
+28: In July 2005, Pitt accompanied Jolie to Addis Ababa, Ethiopia, where she adopted her second child, Zahara Marley.
+29: Jolie gave birth to daughter Shiloh Nouvel in Swakopmund, Namibia, on May 27, 2006.
+30: Pitt adopted Pax in the United States on February 21, 2008.
+
+
+********** Dependency_tree__extractor 30 random triplets..: 
+1: Pitt has described Springfield as "Mark Twain country, Jesse James country", having grown up with "a lot of hills, a lot of lakes".
+
+2: Pitt attended Kickapoo High School, where he was a member of the golf, swimming and tennis teams.
+3: Following his graduation from high school, Pitt enrolled in the University of Missouri in 1982, majoring in journalism with a focus on advertising.
+4: Early work ===
+While struggling to establish himself in Los Angeles, Pitt took lessons from acting coach Roy London.
+5: His next appearance came in the 1991 film Across the Tracks; Pitt portrayed Joe Maloney, a high school runner with a criminal brother, played by Rick Schroder.
+
+6: In 1993, Pitt reunited with Juliette Lewis for the road film Kalifornia.
+7: In 1995, Pitt starred alongside Morgan Freeman and Gwyneth Paltrow in the crime thriller Seven, playing a detective on the trail of a serial killer.
+8: In 1999, Pitt portrayed Tyler Durden in Fight Club, a film adaptation of Chuck Palahniuk's novel of the same name, directed by David Fincher.
+9: Fight Club premiered at the 1999 Venice International Film Festival.
+10: The following year Pitt starred opposite Julia Roberts in the romantic comedy The Mexican, a film that garnered a range of reviews but enjoyed box office success.
+11: In December 2001, Pitt played Rusty Ryan in the heist film Ocean's Eleven, a remake of the 1960 Rat Pack original.
+12: For his next feature film, Pitt starred opposite Cate Blanchett in Alejandro González Iñárritu's multi-narrative drama Babel (2006).
+13: Pitt played Lieutenant Aldo Raine, an American resistance fighter battling Nazis in German-occupied France.
+14: In 2013, Pitt starred in World War Z, a thriller about a zombie apocalypse, based on Max Brooks' novel of the same name.
+15: Pitt starred in Fury, a World War II film directed and written by David Ayer, and co-starring Shia LaBeouf, Logan Lerman, Jon Bernthal and Michael Pena.
+16: Pitt supports the ONE Campaign, an organization aimed at combating AIDS and poverty in the developing world.
+17: The first six homes were completed in October 2008, and in September 2009 Pitt received an award in recognition of the project from the U.S. Green Building Council, a non-profit trade organization that promotes sustainability in how buildings are designed, built and operated.
+18: Pitt met with U.S. President Barack Obama and Speaker of the House of Representatives Nancy Pelosi in March 2009 to promote his concept of green housing as a national model and to discuss federal funding possibilities.
+
+19: Pitt met Friends actress Jennifer Aniston in 1998 and married her in a private wedding ceremony in Malibu on July 29, 2000.
+20: On September 19, 2016, Jolie filed for divorce from Pitt, citing irreconcilable differences.
+
+
+=
+21: In July 2005, Pitt accompanied Jolie to Addis Ababa, Ethiopia, where she adopted her second child, Zahara Marley.
+22: On March 15, 2007, Jolie adopted three-year-old Pax Thien from an orphanage in Ho Chi Minh City, Vietnam.
+23: Pitt adopted Pax in the United States on February 21, 2008.
+
+********** Angelina Jolie page:
+********** POS_extractor 30 random triplets..............: 
+1: Jolie first attended Beverly Hills High School, where she felt isolated among the children of some of the area's affluent families because her mother survived on a more modest income.
+2: After starring in the modern-day Romeo and Juliet adaptation Love Is All There Is (1996), Jolie appeared in the road movie Mojave Moon (1996), of which The Hollywood Reporter said, "Jolie, an actress whom the camera truly adores, reveals a comic flair and the kind of blatant sexuality that makes it entirely credible that Danny Aiello's character would drop everything just for the chance of being with her."
+3: Breakthrough ===
+Jolie's career prospects began to improve after she won a Golden Globe Award for her performance in TNT's George Wallace (1997), about the life of the segregationist Alabama Governor and presidential candidate George Wallace, played by Gary Sinise.
+4: Jolie's first breakthrough came when she portrayed supermodel Gia Carangi in HBO's Gia (1998).
+5: Following the previously filmed gangster film Hell's Kitchen (1998), Jolie returned to the screen in Playing by Heart (1998), part of an ensemble cast that included Sean Connery, Gillian Anderson, and Ryan Phillippe.
+6: Jolie next took the supporting role of a sociopathic mental patient in Girl, Interrupted (1999), an adaptation of Susanna Kaysen's memoir of the same name.
+7: Jolie next starred opposite Antonio Banderas as his mail-order bride in Original Sin (2001), the first of a string of films that were poorly received by critics and audiences alike.
+8: The New York Times critic Elvis Mitchell questioned Jolie's decision to follow her Oscar-winning performance with "soft-core nonsense."
+9: Jolie reprised her role as Lara Croft in Lara Croft Tomb Raider:
+10: Although the biracial Pearl had personally chosen Jolie for the role, the casting drew racial criticism and accusations of blackface.
+11: The film received predominantly favorable reviews; writing for The New York Times, Manohla Dargis noted that Jolie was "perfectly cast as a super-scary, seemingly amoral assassin," adding that "she cuts the kind of disciplinarian figure who can bring boys of all ages to their knees or at least into their theater seats."
+
+
+12: After a three-and-a-half-year absence from the screen, Jolie starred in Maleficent (2014), a live-action re-imagining of Disney's 1959 animation Sleeping Beauty.
+13: After a three-and-a-half-year absence from the screen, Jolie starred in Maleficent (2014), a live-action re-imagining of Disney's 1959 animation Sleeping Beauty.
+14: Unbroken is based on Laura Hillenbrand's biography of the same name, the film was scripted by the Coen brothers and starred Jack O'Connell.
+15: Humanitarian work ==
+
+
+=== UNHCR ambassadorship ===
+
+Jolie first witnessed the effects of a humanitarian crisis while filming Lara Croft: Tomb Raider (2001) in war-torn Cambodia, an experience she later credited with having brought her a greater understanding of the world.
+16: On April 17, 2012, after more than a decade of service as a UNHCR Goodwill Ambassador, Jolie was promoted to the rank of Special Envoy to High Commissioner António Guterres, the first to take on such a position within the organization.
+17: In recognition of her conservation efforts, King Norodom Sihamoni awarded her Cambodian citizenship on July 31, 2005.
+
+18: Jolie and Pitt support other causes through the Jolie-Pitt Foundation, established in September 2006.
+
+
+
+19: Jolie has pushed for legislation to aid child immigrants and other vulnerable children in both the U.S. and developing nations, including the "Unaccompanied Alien Child Protection Act of 2005.
+20: Jolie has funded a school and boarding facility for girls at Kakuma refugee camp in northwestern Kenya, which opened in 2005, and two primary schools for girls in the returnee settlements Tangi and Qalai Gudar in eastern Afghanistan, which opened in March 2010 and November 2012 respectively.
+21: === Human rights and women's rights ===
+
+After Jolie joined the Council on Foreign Relations (CFR) in June 2007, she hosted a symposium on international law and justice at CFR headquarters and funded several CFR special reports, including "Intervention to Stop Genocide and Mass Atrocities."
+22: Through her work on the PSVI, Jolie met foreign policy experts Chloe Dalton and Arminka Helic, who served as special advisers to Hague.
+23: In November 2013, Jolie received the Jean Hersholt Humanitarian Award, an honorary Academy Award, from the Board of Governors of the Academy of Motion Picture Arts and Sciences.
+24: Jolie and Pitt married on August 23, 2014, at their estate Château Miraval in Correns, France.
+25: Zahara was born as Yemsrach on January 8, 2005, in Awasa.
+26: Pitt adopted Maddox and Zahara soon after.
+
+27: In her first op-ed, Jolie had advocated wider accessibility of BRCA gene testing and acknowledged the high costs, which were greatly reduced after the U.S. Supreme Court, in a June 2013 ruling, invalidated BRCA gene patents held by Myriad Genetics.
+
+
+==
+28: A decade later, Jolie was found to be the most admired woman in the world in global surveys conducted by YouGov in 2015 and 2016.
+
+29: After a 2011 repeat survey by Allure found that Jolie most represented the American beauty ideal, compared to model Christie Brinkley in 1991, writer Elizabeth Angell credited society with having "branched out beyond the Barbie-doll ideal and embraced something quite different."
+30: In 2013, Jeffrey Kluger of Time agreed that Jolie has for many years symbolized the feminine ideal, and opined that her frank discussion of her double mastectomy redefined beauty.
+
+
+== Filmography ==
+
+
+==
+
+********** Dependency_tree__extractor 30 random triplets..: 
+1: Jolie's starring role as the video game heroine Lara Croft in Lara Croft: Tomb Raider (2001) established her as a leading Hollywood actress.
+2: Jolie first attended Beverly Hills High School, where she felt isolated among the children of some of the area's affluent families because her mother survived on a more modest income.
+3: In 1997, Jolie starred with David Duchovny in the thriller Playing God, set in the Los Angeles underworld.
+4: " For the second consecutive year, Jolie won a Golden Globe Award and was nominated for an Emmy Award.
+5: Following the previously filmed gangster film Hell's Kitchen (1998), Jolie returned to the screen in Playing by Heart (1998), part of an ensemble cast that included Sean Connery, Gillian Anderson, and Ryan Phillippe.
+6: Jolie next starred opposite Antonio Banderas as his mail-order bride in Original Sin (2001), the first of a string of films that were poorly received by critics and audiences alike.
+7: Following a supporting role as the neglected wife of a CIA officer in Robert De Niro's The Good Shepherd (2006), Jolie starred as Mariane Pearl in the documentary-style drama A Mighty Heart (2007).
+8: Although the biracial Pearl had personally chosen Jolie for the role, the casting drew racial criticism and accusations of blackface.
+9: Jolie also voiced the DreamWorks animation Kung Fu Panda (2008), the first work in a major family franchise, later reprising her voice role in the sequels Kung Fu Panda 2 (2011) and Kung Fu Panda 3 (2016).
+
+10: Jolie starred opposite Johnny Depp in the thriller The Tourist (2010).
+11: After a three-and-a-half-year absence from the screen, Jolie starred in Maleficent (2014), a live-action re-imagining of Disney's 1959 animation Sleeping Beauty.
+12: Upon her return home, Jolie contacted the United Nations High Commissioner for Refugees (UNHCR) for information on international trouble spots.
+13: In the following months, Jolie returned to Cambodia for two weeks and met with Afghan refugees in Pakistan, where she donated $1 million in response to an international UNHCR emergency appeal, the largest donation UNHCR had ever received from a private individual.
+14: In recognition of her conservation efforts, King Norodom Sihamoni awarded her Cambodian citizenship on July 31, 2005.
+
+15: She was inspired by a meeting with the founder of Millennium Promise, noted economist Jeffrey Sachs, at the World Economic Forum in Davos, where she was an invited speaker in 2005 and 2006.
+16: Jolie additionally launched the Malala Fund, a grant system established by Pakistani education activist Malala Yousafzai, at the 2013 Women in the World Summit; she personally contributed over $200,000 to the cause.
+
+17: === Human rights and women's rights ===
+
+After Jolie joined the Council on Foreign Relations (CFR) in June 2007, she hosted a symposium on international law and justice at CFR headquarters and funded several CFR special reports, including "Intervention to Stop Genocide and Mass Atrocities."
+18: In November 2013, Jolie received the Jean Hersholt Humanitarian Award, an honorary Academy Award, from the Board of Governors of the Academy of Motion Picture Arts and Sciences.
+19: Queen Elizabeth II presented Jolie with the insignia of her honorary damehood during a private ceremony the following October.
+
+
+==
+20: They had met on the set of Pushing Tin (1999), but did not pursue a relationship at that time as Thornton was engaged to actress Laura Dern, while Jolie was reportedly dating actor Timothy Hutton, her co-star in Playing God (1997).
+21: After twice visiting Cambodia, while filming Lara Croft: Tomb Raider (2001) and on a UNHCR field mission, Jolie returned in November 2001 with her husband, Billy Bob Thornton, where they met Maddox and subsequently applied to adopt him.
+22: Jolie initially believed Zahara to be an AIDS orphan, based on official testimony from her grandmother, but her birth mother later came forward in the media.
+23: Pitt adopted Maddox and Zahara soon after.
+
+24: Pitt subsequently adopted Pax on February 21, 2008.
+
+25: Jolie was among the Time 100, a list of the most influential people in the world as published by Time, in 2006 and 2008.

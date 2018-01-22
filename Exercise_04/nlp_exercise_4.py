@@ -75,10 +75,24 @@ def extractor_pos(document):
 
         if noPunct and hasVerb:
             # Upon detecting a pair of proper nouns as above, output a (Subject, Relation, Object) triplet
-            triplet = (firstQuadruple['tokens'], tokens, secondQuadruple['tokens'])
+            # get corresponding sentence to print later..
+            sent = get_sent(tokens, analyzed_page)
+            triplet = [(firstQuadruple['tokens'], tokens, secondQuadruple['tokens']), sent]
             pairsTriplets.append(triplet)
 
     return pairsTriplets
+
+
+def get_sent(tokens, analyzed_page):
+    indexInDoc = tokens[0].i
+    # (this solution is not very good but it does the job)
+    for next in list(analyzed_page.sents):
+        if indexInDoc >= next[0].i and indexInDoc <= next[len(next)-1].i:
+            sent = next
+            break
+
+    assert('sent' in locals())
+    return sent
 
 
 def extractor_dependency_tree(document):
@@ -119,7 +133,7 @@ def extractor_dependency_tree(document):
             if h1.head == h2.head and h1.dep_ == 'nsubj' and h2.dep_ == 'dobj':
                 #print('condition #1 met!')
                 relation = [h1.head]
-                triplet = (subj, relation, obj)
+                triplet = [(subj, relation, obj), sent]
                 pairsTriplets.append(triplet)
                 continue
 
@@ -127,7 +141,7 @@ def extractor_dependency_tree(document):
             if h1.head == h2.head.head and h1.dep_ == 'nsubj' and h2.head.dep_ == 'prep' and h2.dep_ == 'pobj':
                 #print('condition #2 met!')
                 relation = [h1.head, h2.head]
-                triplet = (subj, relation, obj)
+                triplet = [(subj, relation, obj), sent]
                 pairsTriplets.append(triplet)
                 continue
     return pairsTriplets
@@ -141,19 +155,34 @@ def run_extractors(page):
     print("run_extractors <--")
 
 
-def print_to_file(f, title, posResult, dtResult):
+def print_to_file(f, fsents, title, posResult, dtResult):
     print(title, file=f)
+    print(title, file=fsents)
     print("********** POS_extractor 30 random triplets..............: ", file=f)
+    print("********** POS_extractor 30 random triplets..............: ", file=fsents)
     randIndices = set()
     while len(randIndices) < 30 and len(randIndices) != len(posResult):
         randIndices.add(randint(0, len(posResult) - 1))
-    [print(posResult[index], file=f) for index in randIndices]
+    id = 1
+    for index in randIndices:
+        print_line(posResult[index], id, f, fsents)
+        id = id + 1
     print("\n********** Dependency_tree__extractor 30 random triplets..: ", file=f)
+    print("\n********** Dependency_tree__extractor 30 random triplets..: ", file=fsents)
     randIndices.clear()
     while len(randIndices) < 30 and len(randIndices) != len(dtResult):
         randIndices.add(randint(0, len(dtResult) - 1))
-    [print(dtResult[index], file=f) for index in randIndices]
+    id = 1
+    for index in randIndices:
+        print_line(dtResult[index], id, f, fsents)
+        id = id + 1
     print("\n\n", file=f)
+
+
+def print_line(triplet, id, f, fs):
+    idStr = str(id) + ":"
+    print(idStr, triplet[0], file=f)
+    print(idStr, triplet[1], file=fs)
 
 
 if __name__ == "__main__":
@@ -169,8 +198,10 @@ if __name__ == "__main__":
     print("3c) -->")
 
     f = open("ex4_random_triplets.txt", "w")
+    f_sents = open("ex4_random_triplets_sents.txt", "w")
     now = datetime.now()
     print("Run at ", now, "\n", file=f)
+    print("Run at ", now, "\n", file=f_sents)
     print("Run at ", now)
     trump = wikipedia.page('Donald Trump').content
     print("Donald Trump page:")
@@ -178,7 +209,7 @@ if __name__ == "__main__":
     print("POS_extractor #triplets..............: ", len(trumpPosResult))
     trumpDtResult = extractor_dependency_tree(trump)
     print("Dependency_tree_extractor #triplets..: ", len(trumpDtResult))
-    print_to_file(f, "********** Donald Trump page:", trumpPosResult, trumpDtResult)
+    print_to_file(f, f_sents, "********** Donald Trump page:", trumpPosResult, trumpDtResult)
 
     bradPitt = wikipedia.page('Brad Pitt').content
     print("Brad Pitt page:")
@@ -186,7 +217,7 @@ if __name__ == "__main__":
     print("POS_extractor #triplets..............: ", len(bradPittPosResult))
     bradPittDtResult = extractor_dependency_tree(bradPitt)
     print("Dependency_tree_extractor #triplets..: ", len(bradPittDtResult))
-    print_to_file(f, "********** Brad Pitt page:", bradPittPosResult, bradPittDtResult)
+    print_to_file(f, f_sents, "********** Brad Pitt page:", bradPittPosResult, bradPittDtResult)
 
     jolie = wikipedia.page('Angelina Jolie').content
     print("Angelina Jolie page:")
@@ -194,7 +225,7 @@ if __name__ == "__main__":
     print("POS_extractor #triplets..............: ", len(joliePosResult))
     jolieDtResult = extractor_dependency_tree(jolie)
     print("Dependency_tree_extractor #triplets..: ", len(jolieDtResult))
-    print_to_file(f, "********** Angelina Jolie page:", joliePosResult, jolieDtResult)
+    print_to_file(f, f_sents, "********** Angelina Jolie page:", joliePosResult, jolieDtResult)
     f.close()
 
     print("3c) <--")
