@@ -2,9 +2,11 @@ import wikipedia, spacy
 from random import randint
 from datetime import datetime
 
+
 def extractor_pos(document):
     """
-    Computes a list of (Subject, Relation, Object) triplets. See comments in code for details.
+    Computes a list of (Subject, Relation, Object) triplets based only on the POS tags in the document.
+    See comments in code for details.
     :param document: the (wikipedia) document to process
     :return: a list of (Subject, Relation, Object) triplets
     """
@@ -78,9 +80,11 @@ def extractor_pos(document):
 
     return pairsTriplets
 
+
 def extractor_dependency_tree(document):
     """
-
+    Computes a list of (Subject, Relation, Object) triplets based on the dependency tree
+    in the document. See comments in code for details.
     :param document: the (wikipedia) document to process
     :return: a list of (Subject, Relation, Object) triplets
     """
