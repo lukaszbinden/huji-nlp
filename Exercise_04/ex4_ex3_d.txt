@@ -1,0 +1,6 @@
+Ex4 - exercise 3 (d)
+--------------------
+The difficulty with head-final language dependency-based extractor is how to distinguish between two consecutive proper nouns if there is no verb in between,i.e. to distinguish between the subject proper noun and the object proper noun if there is no verb between them. 
+
+
+
