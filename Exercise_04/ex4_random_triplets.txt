@@ -3,189 +3,375 @@ Run at  2018-01-22 16:47:28.954047
 ********** Donald Trump page:
 ********** POS_extractor 30 random triplets..............: 
 1: ([White, House], [released], [Obama])
+Validation: invalid, White house released birth certificate.
 2: ([Obama], [was, born, in], [United, States])
+Validation: correct 
 3: ([Trump], [made, speaking, at], [Conservative, Political, Action, Conference])
+Validation: invalid, Trump made appeareance at Conservative...
 4: ([Trump], [dismissed], [FBI, Director, James, Comey])
+Validation: correct
 5: ([Trump], [registered, as], [Republican])
+Validation: correct
 6: ([Ivana], [became], [United, States])
+Validation: invalid, Ivana became citizen
 7: ([RNC, Chairman, Reince, Priebus], [declared], [Trump])
+Validation: invalid, he declared Trump as nominee
 8: ([Clinton], [narrowed, in, following], [FBI])
+Validation: invalid
 9: ([Trump], [has, referred, to], [Art])
+Validation: invalid
 10: ([Trump], [accepted, in, was, inspired, by], [Richard, Nixon])
+Validation: invalid
 11: ([Fred], [in, revitalizing, foreclosed], [Swifton, Village])
+Validation: invalid
 12: ([Trump], [were, leaked, to], [MSNBC])
+Validation: invalid
 13: ([NBC], [show], [Apprentice])
+Validation: invalid
 14: ([Trump], [began, on], [Central, Park])
+Validation: invalid
 15: ([Trump], [got, involved, with, of], [Gulf])
+Validation: invalid
 16: ([Trump], [acquired], [Bank])
+Validation: invalid
 17: ([Trump], [sparked, across], [United, States])
+Validation: invalid
 18: ([Saturday], [following], [Trump])
+Validation: invalid
 19: ([December], [was, named], [Financial, Times, Person])
+Validation: invalid
 20: ([Forbes], [estimated, of], [Trump])
+Validation: invalid
 21: ([Trump], [lent, to], [Tour])
+Validation: correct
 22: ([Trump], [nominated], [U.S., Appeals, Court])
+Validation: invalid
 23: ([Trump], [vowed, repeal, replace], [Obamacare])
+Validation: correct
 24: ([Supreme, Court], [dismissed], [March])
+Validation: invalid
 25: ([Trump], [advocated, sending], [U.S.])
+Validation: invalid
 26: ([NBC], [announced, that, would, be, renewing], [Apprentice])
+Validation: correct
 27: ([Trump], [have, been, condemned, by, in], [U.S.])
+Validation: invalid
 28: ([Trump], [escalated, against], [North, Korea])
+Validation: correct
 29: ([North, Korea], [attacked], [Guam])
+Validation: correct
 30: ([National, Security, Advisor], [after, was, discovered, that, had, misled, about, with], [Sergey, Kislyak])
+Validation: invalid
+
+Score correct/total:   8/30 = 26.6%
+Score invalid/total:  22/30 = 73.3%
 
 ********** Dependency_tree__extractor 30 random triplets..: 
 1: ([Trump], [owned], [Miss, Universe])
+Validation: invalid
 2: ([Trump], [grew, in], [Jamaica])
+Validation: correct
 3: ([Trump], [serve, during], [Vietnam, War])
+Validation: invalid
 4: ([Trump], [cited], [Peale])
+Validation: correct
 5: ([Trump], [receives], [Holy, Communion])
+Validation: correct
 6: ([Trump], [announced, on], [June])
+Validation: correct
 7: ([Trump], [completed], [Trump, World, Tower])
+Validation: correct
 8: ([Trump], [went, to], [Atlantic, City])
+Validation: correct
 9: ([Trump], [paying, in], [May])
+Validation: correct
 10: ([Trump], [purchased], [Jersey, Generals])
+Validation: correct
 11: ([York, State], [filed, against], [Trump, University])
+Validation: correct
 12: ([Trump], [criticized], [Judge, Gonzalo, P., Curiel])
+Validation: correct
 13: ([Trump], [appeared, at], [WrestleMania])
+Validation: correct
 14: ([Trump], [appeared, on], [Late, Show])
+Validation: correct
 15: ([Trump], [told], [NBC])
+Validation: correct
 16: ([Trump], [switched, to], [Reform, Party])
+Validation: correct
 17: ([Trump], [identified, as], [Democrat])
+Validation: correct
 18: ([Trump], [picked], [Democrat, Bill, Clinton])
+Validation: correct
 19: ([Trump], [won], [ME-02])
+Validation: correct
 20: ([Trump], [said, on], [Twitter])
+Validation: correct
 21: ([Trump], [asked], [Director])
+Validation: invalid
 22: ([Trump], [praised], [President, Vladimir, Putin])
+Validation: correct
 23: ([Bannon], [resigned, on], [August])
+Validation: invalid
 24: ([Trump], [told], [King, Live])
+Validation: correct
 25: ([United, States], [spending, on], [NATO])
+Validation: invalid
 26: ([Trump], [warned], [Kim])
+Validation: correct
 27: ([North, Korea], [attacked], [Guam])
+Validation: correct
 28: ([Trump], [dismissed], [Director, James, Comey])
+Validation: correct
 29: ([Trump], [told], [Comey])
+Validation: correct
 30: ([General, Rod, Rosenstein], [appointed], [Robert, Mueller])
+Validation: correct
 
+Score correct/total: 25/30 = 83.3% 
+Score invalid/total:  5/30 = 16.6%
 
 
 ********** Brad Pitt page:
 ********** POS_extractor 30 random triplets..............: 
 1: ([third, Academy, Award], [for, leading, in], [Case])
+Validation: invalid
 2: ([Pitt], [attended], [Kickapoo, High, School])
+Validation: correct
 3: ([Pitt], [took, from, acting], [Roy, London])
+Validation: invalid
 4: ([Glory, Days], [took, in], [HBO])
+Validation: invalid
 5: ([Davis], [has, been, cited, as, defined], [Pitt])
+Validation: invalid
 6: ([Lewis], [in, described, by], [Peter, Travers])
+Validation: invalid
 7: ([Pitt], [garnered, for, in, hit], [True, Romance])
+Validation: invalid
 8: ([Pitt], [starred, in, of], [Fall])
+Validation: invalid
 9: ([Pitt], [starred, alongside], [Morgan, Freeman])
+Validation: correct
 10: ([Golden, Globe, Award], [for, Supporting, for, received], [Academy, Award])
+Validation: invalid
 11: ([Pitt], [portrayed], [Tyler, Durden])
+Validation: correct
 12: ([Fight, Club], [premiered, at], [Venice, International, Film, Festival])
+Validation: correct
 13: ([San, Francisco, Chronicle], [said], [Pitt])
+Validation: invalid
 14: ([Pitt], [starred, opposite], [Julia, Roberts])
+Validation: correct
 15: ([Washington, Times], [stated, that], [Pitt])
+Validation: correct
 16: ([Pitt], [for, Supporting], [Actor, Golden, Globe])
+Validation: invalid
 17: ([Andrew, Dominik], [produced, by], [Pitt])
+Validation: correct
 18: ([Pitt], [had, in], [Ridley, Scott])
+Validation: invalid
 19: ([Pitt], [starred, in], [Fury])
+Validation: correct
 20: ([Pitt], [will, star, in, to], [World, War, Z])
+Validation: invalid
 21: ([Pitt], [will, star, in], [James, Gray])
+Validation: correct
 22: ([Pitt], [visited], [University])
+Validation: invalid
 23: ([October], [encourage, vote, in], [U.S.])
+Validation: invalid
 24: ([Pitt], [supports], [Campaign])
+Validation: correct
 25: ([Pitt], [received, in, of, from], [U.S., Green, Building, Council])
+Validation: invalid
 26: ([Pitt, Foundation], [donated, to], [U.N.])
+Validation: correct
 27: ([Jennifer, Aniston], [in, married, in, in], [Malibu])
+Validation: invalid
 28: ([Pitt], [accompanied], [Jolie])
+Validation: correct
 29: ([Jolie], [gave, daughter], [Shiloh, Nouvel])
+Validation: invalid
 30: ([Pitt], [adopted], [Pax])
+Validation: correct
+
+Score correct/total: 13/30 = 43.3% 
+Score invalid/total: 17/30 = 56.6%
+
 
 ********** Dependency_tree__extractor 30 random triplets..: 
 1: ([Pitt], [described], [Springfield])
+Validation: correct
 2: ([Pitt], [attended], [Kickapoo, High, School])
+Validation: correct
 3: ([Pitt], [enrolled, in], [University])
+Validation: correct
 4: ([Pitt], [took, from], [coach, Roy, London])
+Validation: invalid
 5: ([Pitt], [portrayed], [Joe, Maloney])
+Validation: correct
 6: ([Pitt], [reunited, with], [Juliette, Lewis])
+Validation: correct
 7: ([Pitt], [starred, alongside], [Morgan, Freeman])
+Validation: correct
 8: ([Pitt], [portrayed], [Tyler, Durden])
+Validation: correct
 9: ([Fight, Club], [premiered, at], [Venice, International, Film, Festival])
+Validation: correct
 10: ([Pitt], [starred], [Julia, Roberts])
+Validation: invalid
 11: ([Pitt], [played], [Rusty, Ryan])
+Validation: correct
 12: ([Pitt], [starred], [Cate, Blanchett])
+Validation: invalid
 13: ([Pitt], [played], [Lieutenant, Aldo, Raine])
+Validation: correct
 14: ([Pitt], [starred, in], [World, War, Z])
+Validation: correct
 15: ([Pitt], [starred, in], [Fury])
+Validation: correct
 16: ([Pitt], [supports], [Campaign])
+Validation: correct
 17: ([Pitt], [received, from], [U.S., Building, Council])
+Validation: invalid
 18: ([Pitt], [met, with], [President, Barack, Obama])
+Validation: correct
 19: ([Pitt], [met], [actress, Jennifer, Aniston])
+Validation: correct
 20: ([Jolie], [filed, from], [Pitt])
+Validation: invalid
 21: ([Pitt], [accompanied], [Jolie])
+Validation: correct
 22: ([Jolie], [adopted], [Pax, Thien])
+Validation: correct
 23: ([Pitt], [adopted], [Pax])
+Validation: correct
 
+Score correct/total: 18/23 = 78.3% 
+Score invalid/total:  5/23 = 21.7%
 
 
 ********** Angelina Jolie page:
 ********** POS_extractor 30 random triplets..............: 
 1: ([Jolie], [attended], [Beverly, Hills, High, School])
+Validation: correct
 2: ([Jolie], [appeared, in], [Mojave, Moon])
+Validation: correct
 3: ([Jolie], [began, improve, after, won], [Golden, Globe, Award])
+Validation: invalid
 4: ([Jolie], [came, portrayed], [Gia, Carangi])
+Validation: invalid
 5: ([Jolie], [returned, to, in], [Playing])
+Validation: invalid
 6: ([Jolie], [took, of, in], [Girl])
+Validation: invalid
 7: ([Jolie], [next, starred, opposite], [Antonio, Banderas])
+Validation: correct
 8: ([Jolie], [follow], [Oscar])
+Validation: invalid
 9: ([Jolie], [reprised, as], [Lara, Croft])
+Validation: invalid
 10: ([Pearl], [had, chosen], [Jolie])
+Validation: correct
 11: ([Manohla, Dargis], [noted, that], [Jolie])
+Validation: correct
 12: ([Jolie], [starred, in], [Maleficent])
+Validation: correct
 13: ([Disney], [Sleeping], [Beauty])
+Validation: invalid
 14: ([Unbroken], [is, based, on], [Laura, Hillenbrand])
+Validation: correct
 15: ([Jolie], [witnessed, of, while, filming], [Lara, Croft])
+Validation: invalid
 16: ([Jolie], [was, promoted, to, of], [Special, Envoy])
+Validation: invalid
 17: ([King, Norodom, Sihamoni], [awarded, on], [July])
+Validation: invalid
 18: ([Pitt], [support, through], [Jolie])
+Validation: invalid
 19: ([Jolie], [has, pushed, for, aid, in], [U.S.])
+Validation: correct
 20: ([Jolie], [has, funded, for, at], [Kakuma])
+Validation: invalid
 21: ([CFR], [funded], [CFR])
+Validation: correct
 22: ([Jolie], [met], [Chloe, Dalton])
+Validation: coach
 23: ([Jolie], [received], [Jean, Hersholt, Humanitarian, Award])
+Validation: correct
 24: ([Pitt], [married, on], [August])
+Validation: invalid
 25: ([Zahara], [was, born, as], [Yemsrach])
+Validation: correct
 26: ([Pitt], [adopted], [Maddox])
+Validation: correct
 27: ([Jolie], [had, advocated, of], [BRCA])
+Validation: invalid
 28: ([Jolie], [was, found, be, in, in, conducted, by], [YouGov])
+Validation: invalid
 29: ([Allure], [found, that], [Jolie])
+Validation: invalid
 30: ([Time], [agreed, that], [Jolie])
+Validation: invalid
+
+Score correct/total: 12/30 = 40% 
+Score invalid/total: 18/30 = 60%
 
 ********** Dependency_tree__extractor 30 random triplets..: 
 1: ([Jolie], [starring, as], [game, heroine, Lara, Croft])
+Validation: invalid
 2: ([Jolie], [attended], [Beverly, Hills, High, School])
+Validation: correct
 3: ([Jolie], [starred, with], [David, Duchovny])
+Validation: correct
 4: ([Jolie], [won], [Globe, Award])
+Validation: correct
 5: ([Jolie], [returned, in], [Playing])
+Validation: invalid
 6: ([Jolie], [starred], [Antonio, Banderas])
+Validation: invalid
 7: ([Jolie], [starred, as], [Mariane, Pearl])
+Validation: correct
 8: ([Pearl], [chosen], [Jolie])
+Validation: correct
 9: ([Jolie], [voiced], [animation, Fu, Panda])
+Validation: correct
 10: ([Jolie], [starred, opposite], [Johnny, Depp])
+Validation: correct
 11: ([Jolie], [starred, in], [Maleficent])
+Validation: correct
 12: ([Jolie], [contacted], [Nations, High, Commissioner])
+Validation: correct
 13: ([Jolie], [returned, to], [Cambodia])
+Validation: correct
 14: ([King, Norodom, Sihamoni], [awarded, on], [July])
+Validation: invalid
 15: ([economist, Jeffrey, Sachs], [noted, at], [World, Economic, Forum])
+Validation: invalid
 16: ([Jolie], [launched], [Malala, Fund])
+Validation: correct
 17: ([Jolie], [joined], [Council])
+Validation: correct
 18: ([Jolie], [received], [Hersholt, Humanitarian, Award])
+Validation: correct
 19: ([Queen, Elizabeth, II], [presented], [Jolie])
+Validation: correct
 20: ([Jolie], [dating], [actor, Timothy, Hutton])
+Validation: invalid
 21: ([Jolie], [returned, in], [November])
+Validation: correct
 22: ([Jolie], [believed], [Zahara])
+Validation: correct
 23: ([Pitt], [adopted], [Maddox])
+Validation: correct
 24: ([Pitt], [adopted], [Pax])
+Validation: correct
 25: ([Jolie], [was, among], [Time])
+Validation: invalid
+
+Score correct/total: 18/25 = 72% 
+Score invalid/total:  7/25 = 28%
 
 
+Conclusion: we can see that from these tests the dependency tree extractor in general achieves much better performance than the POS based extractor.
 
