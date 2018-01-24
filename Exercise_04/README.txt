@@ -5,15 +5,17 @@ LUKAS ZBINDEN
 
 ------------------------------------------
 CONTENTS OF ZIP FILE:
-1) nlp_exercise_4.py: contains all the source code from exercise 3
+1) Exercise 1_2.pdf: contains exercises 1 and 2
 
-2) ex4_random_triplets.txt: contains the 30 randomly chosen triplets for each of the two extractors
+2) nlp_exercise_4.py: contains all the source code from exercise 3
 
-3) ex4_random_triplets_sents.txt: contains the sentence corresponding to the random triplet (cf. 3))
+3) ex4_random_triplets.txt: contains the 30 randomly chosen triplets for each of the two extractors
 
-4) ___: contains exercises 1 and 2
+4) ex4_random_triplets_sents.txt: contains the sentence corresponding to the random triplet (cf. 3))
 
-5) READ ME: this file README.txt
+5) ex4_ex3_d.txt: answer to ex3 (d)
+
+6) READ ME: this file README.txt
 ------------------------------------------
 
 
